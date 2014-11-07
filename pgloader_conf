@@ -1,0 +1,120 @@
+LOAD CSV
+	from inline
+HAVING FIELDS
+        (
+           log_time,
+  user_name ,
+  database_name ,
+  process_id ,
+  connection_from ,
+  session_id ,
+  session_line_num ,
+  command_tag ,
+  session_start_time ,
+  virtual_transaction_id ,
+  transaction_id ,
+  error_severity ,
+  sql_state_code ,
+  message ,
+  detail ,
+  hint ,
+  internal_query ,
+  internal_query_pos ,
+  context ,
+  query ,
+  query_pos ,
+  location ,
+  application_name
+        )
+into postgresql://localhost:30004/postgres_log?postgres_log
+target columns
+(
+           log_time,
+  user_name ,
+  database_name ,
+  process_id ,
+  connection_from ,
+  session_id ,
+  session_line_num ,
+  command_tag ,
+  session_start_time ,
+  virtual_transaction_id ,
+  transaction_id ,
+  error_severity ,
+  sql_state_code ,
+  message ,
+  detail ,
+  hint ,
+  internal_query ,
+  internal_query_pos ,
+  context ,
+  query ,
+  query_pos ,
+  location ,
+  application_name
+)
+   WITH truncate,
+        fields optionally enclosed by '"',
+        fields terminated by ',',
+	batch rows  = 100,
+	batch size = 8 MB;
+
+
+2014-11-07 10:02:17.302 CST,"xx_new","xx_insight_new",18445,"10.136.165.93:39143",545c1a19.480d,1,"COPY",2014-11-07 09:02:17 CST,6/1303255,1197337058,ERROR,57014,"canceling statement due to statement timeout",,,,,,"COPY (select t1.fspace, t3.fname, fad_target_classid, t2.name, num_client, num_client_big_imp, coverage 
+from 
+(select
+     client_cnt.fspace, client_cnt.fad_target_classid, num_client, num_client_big_imp, case when num_client > 0 then num_client_big_imp * 1.0/ num_client else 0 end as coverage
+from (
+    select
+         fspace,fad_target_classid, count(distinct adinfo.fad_advertiser_id) as num_client
+     from
+         (select
+              fspace, fad
+          from 
+              xx_ad_r_space_day
+          where fdatetime='20141106') ad
+          left join (
+          select
+              fad_id, fad_target_classid, fad_advertiser_id
+          from
+              xx_ad_info_day
+          where
+              fdatetime='20141106' 
+		  group by fad_id, fad_target_classid, fad_advertiser_id
+		  ) adinfo
+          on
+              ad.fad = adinfo.fad_id
+      group by fspace,fad_target_classid
+      ) client_cnt
+      left join
+      (select fspace, fad_target_classid, count(distinct client_big_imp) as num_client_big_imp
+       from
+          (select
+               cs.fspace, fad_target_classid, fad_advertiser_id as client_big_imp
+          from
+              (select
+                   fspace, fad, fimpression
+               from xx_ctr_space_alg_ad_day
+               where fdatetime='20141106') cs
+               left join
+              (select
+                   fad_id,fad_target_classid, fad_advertiser_id 
+			   from xx_ad_info_day 
+               where fdatetime='20141106'
+			   group by fad_id,fad_target_classid, fad_advertiser_id
+			   ) ad
+               on (cs.fad = ad.fad_id)
+          group by fspace,fad_target_classid, fad_advertiser_id
+          having sum(cs.fimpression) > 10000
+          ) big_imp
+       group by fspace, fad_target_classid
+      ) client_cnt_big_imp
+     on (client_cnt.fspace = client_cnt_big_imp.fspace and client_cnt.fad_target_classid = client_cnt_big_imp.fad_target_classid)
+) t1
+left join 
+(select id, name from xx_ad_source_info ) t2
+on (t1.fad_target_classid = t2.id)
+left join
+(select fspace, fname from xx_space_new_info) t3
+on (t1.fspace = t3.fspace)
+order by t1.fspace, t1.fad_target_classid) TO STDOUT DELIMITER ',' NULL 'null' CSV QUOTE '""'",,"ProcessInterrupts, postgres.c:3314","psql"
