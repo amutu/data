@@ -1,0 +1,1756 @@
+build started at Wed Jun 28 05:31:51 CST 2017
+port directory: /usr/ports/science/tensorflow
+building for: FreeBSD 12current-20170619-default 12.0-CURRENT FreeBSD 12.0-CURRENT amd64
+maintained by: amutu@amutu.com
+Makefile ident: 
+Poudriere version: 3.1.19
+Host OSVERSION: 1200034
+Jail OSVERSION: 1200034
+Job Id: 
+
+---Begin Environment---
+SHELL=/bin/csh
+OSVERSION=1200034
+UNAME_v=FreeBSD 12.0-CURRENT
+UNAME_r=12.0-CURRENT
+BLOCKSIZE=K
+MAIL=/var/mail/root
+STATUS=1
+SAVED_TERM=vt100
+NO_WARNING_PKG_INSTALL_EOL=yes
+MASTERMNT=/usr/local/poudriere/data/.m/12current-20170619-default/ref
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin
+POUDRIERE_BUILD_TYPE=bulk
+OLDPWD=/usr/local/poudriere/data/.m/12current-20170619-default/ref/.p
+PWD=/
+MASTERNAME=12current-20170619-default
+SCRIPTPREFIX=/usr/local/share/poudriere
+USER=root
+HOME=/root
+POUDRIERE_VERSION=3.1.19
+SCRIPTPATH=/usr/local/share/poudriere/testport.sh
+TRYBROKEN=yes
+LIBEXECPREFIX=/usr/local/libexec/poudriere
+LOCALBASE=/usr/local
+POUDRIEREPATH=/usr/local/bin/poudriere
+---End Environment---
+
+---Begin Poudriere Port Flags/Env---
+PORT_FLAGS=
+PKGENV=PACKAGES=/tmp/pkgs PKGREPOSITORY=/tmp/pkgs
+---End Poudriere Port Flags/Env---
+
+---Begin OPTIONS List---
+---End OPTIONS List---
+
+--CONFIGURE_ARGS--
+
+--End CONFIGURE_ARGS--
+
+--CONFIGURE_ENV--
+PYTHON="/usr/local/bin/python2.7" XDG_DATA_HOME=/wrkdirs/usr/ports/science/tensorflow/work  XDG_CONFIG_HOME=/wrkdirs/usr/ports/science/tensorflow/work  HOME=/wrkdirs/usr/ports/science/tensorflow/work TMPDIR="/tmp" SHELL=/bin/sh CONFIG_SHELL=/bin/sh
+--End CONFIGURE_ENV--
+
+--MAKE_ENV--
+XDG_DATA_HOME=/wrkdirs/usr/ports/science/tensorflow/work  XDG_CONFIG_HOME=/wrkdirs/usr/ports/science/tensorflow/work  HOME=/wrkdirs/usr/ports/science/tensorflow/work TMPDIR="/tmp" NO_PIE=yes MK_DEBUG_FILES=no MK_KERNEL_SYMBOLS=no SHELL=/bin/sh NO_LINT=YES PREFIX=/usr/local  LOCALBASE=/usr/local  LIBDIR="/usr/lib"  CC="cc" CFLAGS="-O2 -pipe  -fstack-protector -fno-strict-aliasing"  CPP="cpp" CPPFLAGS=""  LDFLAGS=" -fstack-protector" LIBS=""  CXX="c++" CXXFLAGS="-O2 -pipe -fstack-protector -fno-strict-aliasing "  MANPREFIX="/usr/local" BSD_INSTALL_PROGRAM="install  -s -m 555"  BSD_INSTALL_LIB="install  -s -m 0644"  BSD_INSTALL_SCRIPT="install  -m 555"  BSD_INSTALL_DATA="install  -m 0644"  BSD_INSTALL_MAN="install  -m 444"
+--End MAKE_ENV--
+
+--PLIST_SUB--
+PYTHON_INCLUDEDIR=include/python2.7
+PYTHON_LIBDIR=lib/python2.7
+PYTHON_PLATFORM=freebsd12
+PYTHON_PYOEXTENSION=pyo
+PYTHON_SITELIBDIR=lib/python2.7/site-packages
+PYTHON_SUFFIX=27
+PYTHON_VER=2.7
+PYTHON_VERSION=python2.7
+PYTHON2=""
+PYTHON3="@comment
+"
+OSREL=12.0
+PREFIX=%D
+LOCALBASE=/usr/local
+RESETPREFIX=/usr/local
+PORTDOCS=""
+PORTEXAMPLES=""
+LIB32DIR=lib
+DOCSDIR="share/doc/tensorflow"
+EXAMPLESDIR="share/examples/tensorflow"
+DATADIR="share/tensorflow"
+WWWDIR="www/tensorflow"
+ETCDIR="etc/tensorflow"
+--End PLIST_SUB--
+
+--SUB_LIST--
+PREFIX=/usr/local
+LOCALBASE=/usr/local
+DATADIR=/usr/local/share/tensorflow
+DOCSDIR=/usr/local/share/doc/tensorflow
+EXAMPLESDIR=/usr/local/share/examples/tensorflow
+WWWDIR=/usr/local/www/tensorflow
+ETCDIR=/usr/local/etc/tensorflow
+--End SUB_LIST--
+
+---Begin make.conf---
+USE_PACKAGE_DEPENDS=yes
+BATCH=yes
+WRKDIRPREFIX=/wrkdirs
+PORTSDIR=/usr/ports
+PACKAGES=/packages
+DISTDIR=/distfiles
+FORCE_PACKAGE=yes
+PACKAGE_BUILDING=yes
+#### /usr/ports/Mk/Scripts/ports_env.sh ####
+ARCH=amd64
+CONFIGURE_MAX_CMD_LEN=262144
+HAVE_COMPAT_IA32_KERN=YES
+OPSYS=FreeBSD
+OSREL=12.0
+OSVERSION=1200034
+PYTHONBASE=/usr/local
+UID=0
+_JAVA_OS_LIST_REGEXP=native\|linux
+_JAVA_VENDOR_LIST_REGEXP=openjdk\|oracle\|sun
+_JAVA_VERSION_LIST_REGEXP=1.6\|1.7\|1.8\|1.6+\|1.7+\|1.8+
+_OSRELEASE=12.0-CURRENT
+_SMP_CPUS=6
+#### Misc Poudriere ####
+GID=0
+---End make.conf---
+--Resource limits--
+cpu time               (seconds, -t)  unlimited
+file size           (512-blocks, -f)  unlimited
+data seg size           (kbytes, -d)  33554432
+stack size              (kbytes, -s)  524288
+core file size      (512-blocks, -c)  unlimited
+max memory size         (kbytes, -m)  unlimited
+locked memory           (kbytes, -l)  unlimited
+max user processes              (-u)  12186
+open files                      (-n)  1024
+virtual mem size        (kbytes, -v)  unlimited
+swap limit              (kbytes, -w)  unlimited
+socket buffer size       (bytes, -b)  unlimited
+pseudo-terminals                (-p)  unlimited
+kqueues                         (-k)  unlimited
+umtx shared locks               (-o)  unlimited
+--End resource limits--
+=======================<phase: check-sanity   >============================
+===>  License APACHE20 accepted by the user
+===========================================================================
+=======================<phase: pkg-depends    >============================
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/sbin/pkg - not found
+===>   Installing existing package /packages/All/pkg-1.10.1.txz
+[12current-20170619-default] Installing pkg-1.10.1...
+[12current-20170619-default] Extracting pkg-1.10.1: .......... done
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/sbin/pkg - found
+===>   Returning to build of py27-tensorflow-1.2.0
+===========================================================================
+=======================<phase: fetch-depends  >============================
+===========================================================================
+=======================<phase: fetch          >============================
+===>  License APACHE20 accepted by the user
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py27-tensorflow-1.2.0 for building
+===========================================================================
+=======================<phase: checksum       >============================
+===>  License APACHE20 accepted by the user
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py27-tensorflow-1.2.0 for building
+=> SHA256 Checksum OK for tensorflow-tensorflow-v1.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for amutu-tensorflow_third_party-c528072_GH0.tar.gz.
+=> SHA256 Checksum OK for patch-WORKSPACE.
+=> SHA256 Checksum OK for patch-tensorflow_workspace.bzl.
+===========================================================================
+=======================<phase: extract-depends>============================
+===========================================================================
+=======================<phase: extract        >============================
+===>  License APACHE20 accepted by the user
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py27-tensorflow-1.2.0 for building
+===>  Extracting for py27-tensorflow-1.2.0
+=> SHA256 Checksum OK for tensorflow-tensorflow-v1.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for amutu-tensorflow_third_party-c528072_GH0.tar.gz.
+=> SHA256 Checksum OK for patch-WORKSPACE.
+=> SHA256 Checksum OK for patch-tensorflow_workspace.bzl.
+===========================================================================
+=======================<phase: patch-depends  >============================
+===========================================================================
+=======================<phase: patch          >============================
+===>  Patching for py27-tensorflow-1.2.0
+===>  Applying distribution patches for py27-tensorflow-1.2.0
+===>  Applying FreeBSD patches for py27-tensorflow-1.2.0
+(cd /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0 &&  /usr/bin/sed -i.bak "s#bazel \([cf]\)#echo bazel --output_user_root=/wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot --batch \1#g"  configure &&  /usr/bin/sed -i.bak "s#tensorflow_third_party#/wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/&#g"  WORKSPACE &&  /usr/bin/sed -i.bak "s#tensorflow_third_party#/wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/&#g"  tensorflow/workspace.bzl)
+===========================================================================
+=======================<phase: build-depends  >============================
+===>   py27-tensorflow-1.2.0 depends on package: py27-wheel>=0.29.0 - not found
+===>   Installing existing package /packages/All/py27-wheel-0.29.0.txz
+[12current-20170619-default] Installing py27-wheel-0.29.0...
+[12current-20170619-default] `-- Installing py27-setuptools-36.0.1...
+[12current-20170619-default] |   `-- Installing python27-2.7.13_4...
+[12current-20170619-default] |   | `-- Installing gettext-runtime-0.19.8.1_1...
+[12current-20170619-default] |   |   `-- Installing indexinfo-0.2.6...
+[12current-20170619-default] |   |   `-- Extracting indexinfo-0.2.6: .... done
+[12current-20170619-default] |   | `-- Extracting gettext-runtime-0.19.8.1_1: .......... done
+[12current-20170619-default] |   | `-- Installing libffi-3.2.1...
+[12current-20170619-default] |   | `-- Extracting libffi-3.2.1: .......... done
+[12current-20170619-default] |   | `-- Installing readline-6.3.8_1...
+[12current-20170619-default] |   | `-- Extracting readline-6.3.8_1: .......... done
+[12current-20170619-default] |   `-- Extracting python27-2.7.13_4: .......... done
+[12current-20170619-default] `-- Extracting py27-setuptools-36.0.1: .......... done
+[12current-20170619-default] Extracting py27-wheel-0.29.0: .......... done
+Message from python27-2.7.13_4:
+===========================================================================
+
+Note that some standard Python modules are provided as separate ports
+as they require additional dependencies. They are available as:
+
+bsddb           databases/py-bsddb
+gdbm            databases/py-gdbm
+sqlite3         databases/py-sqlite3
+tkinter         x11-toolkits/py-tkinter
+
+===========================================================================
+===>   py27-tensorflow-1.2.0 depends on package: py27-wheel>=0.29.0 - found
+===>   Returning to build of py27-tensorflow-1.2.0
+===>   py27-tensorflow-1.2.0 depends on package: py27-numpy>=1.11.2 - not found
+===>   Installing existing package /packages/All/py27-numpy-1.11.2_3,1.txz
+[12current-20170619-default] Installing py27-numpy-1.11.2_3,1...
+[12current-20170619-default] `-- Installing blas-3.5.0_3...
+[12current-20170619-default] |   `-- Installing gcc5-5.4.0_2...
+[12current-20170619-default] |   | `-- Installing binutils-2.28,1...
+[12current-20170619-default] |   | `-- Extracting binutils-2.28,1: .......... done
+[12current-20170619-default] |   | `-- Installing gcc-ecj-4.5...
+[12current-20170619-default] |   | `-- Extracting gcc-ecj-4.5: . done
+[12current-20170619-default] |   | `-- Installing gmp-6.1.2...
+[12current-20170619-default] |   | `-- Extracting gmp-6.1.2: .......... done
+[12current-20170619-default] |   | `-- Installing mpc-1.0.3...
+[12current-20170619-default] |   |   `-- Installing mpfr-3.1.5_1...
+[12current-20170619-default] |   |   `-- Extracting mpfr-3.1.5_1: .......... done
+[12current-20170619-default] |   | `-- Extracting mpc-1.0.3: ...... done
+[12current-20170619-default] |   `-- Extracting gcc5-5.4.0_2: .......... done
+[12current-20170619-default] `-- Extracting blas-3.5.0_3: ....... done
+[12current-20170619-default] `-- Installing cblas-1.0_6...
+[12current-20170619-default] `-- Extracting cblas-1.0_6: ......... done
+[12current-20170619-default] `-- Installing lapack-3.5.0_2...
+[12current-20170619-default] `-- Extracting lapack-3.5.0_2: .......... done
+[12current-20170619-default] `-- Installing suitesparse-4.0.2_6...
+[12current-20170619-default] |   `-- Installing openblas-0.2.19_1,1...
+[12current-20170619-default] |   `-- Extracting openblas-0.2.19_1,1: ......... done
+[12current-20170619-default] `-- Extracting suitesparse-4.0.2_6: .......... done
+[12current-20170619-default] Extracting py27-numpy-1.11.2_3,1: .......... done
+Message from gcc5-5.4.0_2:
+To ensure binaries built with this toolchain find appropriate versions
+of the necessary run-time libraries, you may want to link using
+
+  -Wl,-rpath=/usr/local/lib/gcc5
+
+For ports leveraging USE_GCC, USES=compiler, or USES=fortran this happens
+transparently.
+Message from cblas-1.0_6:
+===>   NOTICE:
+
+The cblas port currently does not have a maintainer. As a result, it is
+more likely to have unresolved issues, not be up-to-date, or even be removed in
+the future. To volunteer to maintain this port, please create an issue at:
+
+https://bugs.freebsd.org/bugzilla
+
+More information about port maintainership is available at:
+
+https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
+===>   py27-tensorflow-1.2.0 depends on package: py27-numpy>=1.11.2 - found
+===>   Returning to build of py27-tensorflow-1.2.0
+===>   py27-tensorflow-1.2.0 depends on executable: bash - not found
+===>   Installing existing package /packages/All/bash-4.4.12_2.txz
+[12current-20170619-default] Installing bash-4.4.12_2...
+[12current-20170619-default] Extracting bash-4.4.12_2: .......... done
+===>   py27-tensorflow-1.2.0 depends on executable: bash - found
+===>   Returning to build of py27-tensorflow-1.2.0
+===>   py27-tensorflow-1.2.0 depends on executable: bazel - not found
+===>   Installing existing package /packages/All/bazel_clang38-0.5.0.txz
+[12current-20170619-default] Installing bazel_clang38-0.5.0...
+[12current-20170619-default] `-- Installing llvm38-3.8.1_8...
+[12current-20170619-default] |   `-- Installing libedit-3.1.20170329_2,1...
+[12current-20170619-default] |   `-- Extracting libedit-3.1.20170329_2,1: .......... done
+[12current-20170619-default] |   `-- Installing perl5-5.24.1_1...
+[12current-20170619-default] |   `-- Extracting perl5-5.24.1_1: .......... done
+/usr/local/lib/perl5/site_perl/man//mandoc.db: unlink: No such file or directory
+[12current-20170619-default] `-- Extracting llvm38-3.8.1_8: .......... done
+[12current-20170619-default] `-- Installing openjdk8-8.131.11...
+[12current-20170619-default] |   `-- Installing alsa-lib-1.1.2...
+[12current-20170619-default] |   `-- Extracting alsa-lib-1.1.2: .......... done
+[12current-20170619-default] |   `-- Installing dejavu-2.37...
+[12current-20170619-default] |   | `-- Installing fontconfig-2.12.1,1...
+[12current-20170619-default] |   |   `-- Installing expat-2.2.0_1...
+[12current-20170619-default] |   |   `-- Extracting expat-2.2.0_1: .......... done
+[12current-20170619-default] |   |   `-- Installing freetype2-2.8...
+[12current-20170619-default] |   |   `-- Extracting freetype2-2.8: .......... done
+[12current-20170619-default] |   | `-- Extracting fontconfig-2.12.1,1: .......... done
+Running fc-cache to build fontconfig cache...
+/usr/local/share/fonts: skipping, no such directory
+/usr/local/lib/X11/fonts: skipping, no such directory
+/var/db/fontconfig: cleaning cache directory
+fc-cache: succeeded
+[12current-20170619-default] |   | `-- Installing mkfontdir-1.0.7...
+[12current-20170619-default] |   |   `-- Installing mkfontscale-1.1.2...
+[12current-20170619-default] |   |   | `-- Installing libfontenc-1.1.3_1...
+[12current-20170619-default] |   |   |   `-- Installing xproto-7.0.31...
+[12current-20170619-default] |   |   |   `-- Extracting xproto-7.0.31: .......... done
+[12current-20170619-default] |   |   | `-- Extracting libfontenc-1.1.3_1: ......... done
+[12current-20170619-default] |   |   `-- Extracting mkfontscale-1.1.2: .. done
+[12current-20170619-default] |   | `-- Extracting mkfontdir-1.0.7: .. done
+[12current-20170619-default] |   `-- Extracting dejavu-2.37: .......... done
+[12current-20170619-default] |   `-- Installing giflib-5.1.4...
+[12current-20170619-default] |   `-- Extracting giflib-5.1.4: .......... done
+[12current-20170619-default] |   `-- Installing java-zoneinfo-2017.b...
+[12current-20170619-default] |   `-- Extracting java-zoneinfo-2017.b: .......... done
+[12current-20170619-default] |   `-- Installing javavmwrapper-2.5_2...
+[12current-20170619-default] |   `-- Extracting javavmwrapper-2.5_2: .......... done
+[12current-20170619-default] |   `-- Installing libX11-1.6.5,1...
+[12current-20170619-default] |   | `-- Installing kbproto-1.0.7...
+[12current-20170619-default] |   | `-- Extracting kbproto-1.0.7: .......... done
+[12current-20170619-default] |   | `-- Installing libXau-1.0.8_3...
+[12current-20170619-default] |   | `-- Extracting libXau-1.0.8_3: .......... done
+[12current-20170619-default] |   | `-- Installing libXdmcp-1.1.2...
+[12current-20170619-default] |   | `-- Extracting libXdmcp-1.1.2: ......... done
+[12current-20170619-default] |   | `-- Installing libxcb-1.12_2...
+[12current-20170619-default] |   |   `-- Installing libpthread-stubs-0.4...
+[12current-20170619-default] |   |   `-- Extracting libpthread-stubs-0.4: . done
+[12current-20170619-default] |   |   `-- Installing libxml2-2.9.4...
+[12current-20170619-default] |   |   `-- Extracting libxml2-2.9.4: .......... done
+[12current-20170619-default] |   | `-- Extracting libxcb-1.12_2: .......... done
+[12current-20170619-default] |   `-- Extracting libX11-1.6.5,1: .......... done
+[12current-20170619-default] |   `-- Installing libXext-1.3.3_1,1...
+[12current-20170619-default] |   | `-- Installing xextproto-7.3.0...
+[12current-20170619-default] |   | `-- Extracting xextproto-7.3.0: .......... done
+[12current-20170619-default] |   `-- Extracting libXext-1.3.3_1,1: .......... done
+[12current-20170619-default] |   `-- Installing libXi-1.7.9,1...
+[12current-20170619-default] |   | `-- Installing inputproto-2.3.2...
+[12current-20170619-default] |   | `-- Extracting inputproto-2.3.2: ........ done
+[12current-20170619-default] |   | `-- Installing libXfixes-5.0.3...
+[12current-20170619-default] |   |   `-- Installing fixesproto-5.0...
+[12current-20170619-default] |   |   `-- Extracting fixesproto-5.0: .... done
+[12current-20170619-default] |   | `-- Extracting libXfixes-5.0.3: .......... done
+[12current-20170619-default] |   `-- Extracting libXi-1.7.9,1: .......... done
+[12current-20170619-default] |   `-- Installing libXrender-0.9.10...
+[12current-20170619-default] |   | `-- Installing renderproto-0.11.1...
+[12current-20170619-default] |   | `-- Extracting renderproto-0.11.1: .... done
+[12current-20170619-default] |   `-- Extracting libXrender-0.9.10: .......... done
+[12current-20170619-default] |   `-- Installing libXt-1.1.5,1...
+[12current-20170619-default] |   | `-- Installing libSM-1.2.2_3,1...
+[12current-20170619-default] |   |   `-- Installing libICE-1.0.9_1,1...
+[12current-20170619-default] |   |   `-- Extracting libICE-1.0.9_1,1: .......... done
+[12current-20170619-default] |   | `-- Extracting libSM-1.2.2_3,1: .......... done
+[12current-20170619-default] |   `-- Extracting libXt-1.1.5,1: .......... done
+[12current-20170619-default] |   `-- Installing libXtst-1.2.3...
+[12current-20170619-default] |   | `-- Installing recordproto-1.14.2...
+[12current-20170619-default] |   | `-- Extracting recordproto-1.14.2: .... done
+[12current-20170619-default] |   `-- Extracting libXtst-1.2.3: .......... done
+[12current-20170619-default] `-- Extracting openjdk8-8.131.11: .......... done
+[12current-20170619-default] Extracting bazel_clang38-0.5.0: ..... done
+Message from perl5-5.24.1_1:
+The /usr/bin/perl symlink has been removed starting with Perl 5.20.
+For shebangs, you should either use:
+
+#!/usr/local/bin/perl
+
+or
+
+#!/usr/bin/env perl
+
+The first one will only work if you have a /usr/local/bin/perl,
+the second will work as long as perl is in PATH.
+Message from freetype2-2.8:
+The 2.7.x series now uses the new subpixel hinting mode (V40 port's option) as
+the default, emulating a modern version of ClearType. This change inevitably
+leads to different rendering results, and you might change port's options to
+adapt it to your taste (or use the new "FREETYPE_PROPERTIES" environment
+variable).
+
+The environment variable "FREETYPE_PROPERTIES" can be used to control the
+driver properties. Example:
+
+FREETYPE_PROPERTIES=truetype:interpreter-version=35 \
+	cff:no-stem-darkening=1 \
+	autofitter:warping=1
+
+This allows to select, say, the subpixel hinting mode at runtime for a given
+application.
+
+The controllable properties are listed in the section "Controlling FreeType
+Modules" in the reference's table of contents
+(/usr/local/share/doc/freetype2/reference/ft2-toc.html, if documentation was installed).
+Message from dejavu-2.37:
+Make sure that the freetype module is loaded.  If it is not, add the following
+line to the "Modules" section of your X Windows configuration file:
+
+	Load "freetype"
+
+Add the following line to the "Files" section of X Windows configuration file:
+
+	FontPath "/usr/local/share/fonts/dejavu/"
+
+Note: your X Windows configuration file is typically /etc/X11/XF86Config
+if you are using XFree86, and /etc/X11/xorg.conf if you are using X.Org.
+Message from openjdk8-8.131.11:
+======================================================================
+
+This OpenJDK implementation requires fdescfs(5) mounted on /dev/fd and
+procfs(5) mounted on /proc.
+
+If you have not done it yet, please do the following:
+
+	mount -t fdescfs fdesc /dev/fd
+	mount -t procfs proc /proc
+
+To make it permanent, you need the following lines in /etc/fstab:
+
+	fdesc	/dev/fd		fdescfs		rw	0	0
+	proc	/proc		procfs		rw	0	0
+
+======================================================================
+===>   py27-tensorflow-1.2.0 depends on executable: bazel - found
+===>   Returning to build of py27-tensorflow-1.2.0
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/bin/python2.7 - found
+===========================================================================
+=======================<phase: lib-depends    >============================
+===========================================================================
+====>> Recording filesystem state for prebuild... done
+=======================<phase: configure      >============================
+===>   py27-tensorflow-1.2.0 depends on package: py27-wheel>=0.29.0 - found
+===>   py27-tensorflow-1.2.0 depends on package: py27-numpy>=1.11.2 - found
+===>   py27-tensorflow-1.2.0 depends on executable: bash - found
+===>   py27-tensorflow-1.2.0 depends on executable: bazel - found
+===>   py27-tensorflow-1.2.0 depends on file: /usr/local/bin/python2.7 - found
+===>  Configuring for py27-tensorflow-1.2.0
+(cd /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0 && /usr/bin/env  PYTHON_BIN_PATH=/usr/local/bin/python2.7  TF_NEED_MKL=N  CC_OPT_FLAGS="-O2 -pipe  -fstack-protector -fno-strict-aliasing"  TF_NEED_GCP=N TF_NEED_HDFS=N  TF_ENABLE_XLA=N  TF_NEED_OPENCL=N  TF_NEED_CUDA=N  PYTHON_LIB_PATH="/usr/local/lib/python2.7/site-packages"  TF_NEED_VERBS=N  ./configure)
+bazel --output_user_root=/wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot --batch clean
+Configuration finished
+===========================================================================
+=======================<phase: build          >============================
+===>  Building for py27-tensorflow-1.2.0
+(cd /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0 && bazel --output_user_root=/wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot --batch info &&  bazel --output_user_root=/wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot --batch build  --config=opt  //tensorflow/tools/pip_package:build_pip_package --verbose_failures)
+Extracting Bazel installation...
+____Loading package: @bazel_tools//tools/jdk
+____Loading package: @local_config_xcode//
+____Loading package: @local_jdk//
+bazel-bin: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/execroot/tensorflow-1.2.0/bazel-out/local_freebsd-opt/bin
+bazel-genfiles: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/execroot/tensorflow-1.2.0/bazel-out/local_freebsd-opt/genfiles
+bazel-testlogs: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/execroot/tensorflow-1.2.0/bazel-out/local_freebsd-opt/testlogs
+character-encoding: file.encoding = ISO-8859-1, defaultCharset = ISO-8859-1
+command_log: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/command.log
+committed-heap-size: 206MB
+execution_root: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/execroot/tensorflow-1.2.0
+gc-count: 5
+gc-time: 482ms
+install_base: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/install/00a129314e3a13381720f28c0187bd5d
+java-home: /usr/local/openjdk8/jre
+java-runtime: OpenJDK Runtime Environment (build 1.8.0_131-b11) by Oracle Corporation
+java-vm: OpenJDK 64-Bit Server VM (build 25.131-b11, mixed mode) by Oracle Corporation
+max-heap-size: 1901MB
+message_log: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/message.log
+output_base: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e
+output_path: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/bazel_ot/6a2b2ccf00239ca8b00efa286887294e/execroot/tensorflow-1.2.0/bazel-out
+package_path: %workspace%
+release: release 0.5.0
+server_pid: 99045
+used-heap-size: 121MB
+workspace: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0
+____Loading package: tensorflow/tools/pip_package
+____Loading package: @bazel_tools//tools/cpp
+____Loading package: @bazel_tools//tools/jdk
+____Loading package: @local_config_cc//
+____Loading complete.  Analyzing...
+____Loading package: tensorflow
+____Loading package: third_party/eigen3
+____Loading package: @org_pocoo_werkzeug//
+____Loading package: tensorflow/contrib/session_bundle
+____Loading package: tensorflow/contrib/slim/python/slim/data
+____Loading package: @nanopb_git//
+____Loading package: @org_mozilla_bleach//
+____Loading package: @gif_archive//
+____Loading package: tensorflow/python/tools
+____Loading package: @jpeg//
+____Loading package: @grpc//
+____Loading package: @local_config_cuda//cuda
+____Loading package: tools/defaults
+____Loading package: @bazel_tools//tools/genrule
+____Loading package: third_party/py/numpy
+____Loading package: tensorflow/core/platform/default/build_config
+____Loading package: tensorflow/stream_executor
+____Loading package: tensorflow/core/grappler/costs
+____Loading package: @local_config_python//
+____Loading package: tensorflow/core/util/ctc
+____Loading package: tensorflow/core/util/tensor_bundle
+____Loading package: tensorflow/core/kernels/hexagon
+____Loading package: tensorflow/tools/tfprof
+____Loading package: tensorflow/contrib/distributions
+____Loading package: tensorflow/contrib/rnn
+____Loading package: tensorflow/contrib/losses
+____Loading package: tensorflow/contrib/deprecated
+____Loading package: tensorflow/contrib/copy_graph
+____Loading package: tensorflow/contrib/layers/kernels
+____Loading package: tensorflow/compiler/jit
+WARNING: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/tensorflow/contrib/learn/BUILD:15:1: in py_library rule //tensorflow/contrib/learn:learn: target '//tensorflow/contrib/learn:learn' depends on deprecated target '//tensorflow/contrib/session_bundle:exporter': Use SavedModel Builder instead..
+WARNING: /wrkdirs/usr/ports/science/tensorflow/work/tensorflow-1.2.0/tensorflow/contrib/learn/BUILD:15:1: in py_library rule //tensorflow/contrib/learn:learn: target '//tensorflow/contrib/learn:learn' depends on deprecated target '//tensorflow/contrib/session_bundle:gc': Use SavedModel instead..
+____Loading package: tensorflow/contrib/batching/kernels
+____Loading package: tensorflow/contrib/tfprof/python/tools/tfprof
+____Loading package: tensorflow/tensorboard/lib
+____Loading package: @promise_polyfill//
+____Loading package: @plottable//
+____Loading package: @paper_progress//
+____Loading package: @iron_ajax//
+____Loading package: @iron_a11y_keys_behavior//
+____Loading package: @iron_validatable_behavior//
+____Loading package: @neon_animation//
+____Loading package: @iron_overlay_behavior//
+____Loading package: @paper_dropdown_menu//
+____Loading package: @paper_behaviors//
+____Found 1 target...
+____Building...
+____[0 / 4] BazelWorkspaceStatusAction stable-status.txt
+____[3 / 99] Expanding template external/jpeg/jconfigint_nowin.h [for host]
+____[11 / 330] Compiling tensorflow/core/lib/hash/crc32c_accelerate.cc [for host]
+____[12 / 398] Creating source manifest for //tensorflow/contrib/nccl:gen_nccl_ops_py_wrappers_cc [for host]
+____[14 / 410] Creating source manifest for //tensorflow/python:gen_set_ops_py_wrappers_cc [for host]
+____[20 / 421] Creating runfiles tree bazel-out/host/bin/tensorflow/python/gen_state_ops_py_wrappers_cc.runfiles [for host]
+____[23 / 436] Creating source manifest for //tensorflow/contrib/factorization:gen_gen_clustering_ops_py_wrappers_cc [for host]
+____[34 / 466] Expanding template tensorflow/python/tools/freeze_graph
+____[39 / 484] Creating source manifest for //tensorflow/python:gen_training_ops_py_wrappers_cc [for host]
+____[47 / 500] Creating source manifest for //tensorflow/contrib/cudnn_rnn:gen_cudnn_rnn_ops_py_wrappers_cc [for host]
+____[63 / 611] Linking tensorflow/core/liblib_hash_crc32c_accelerate_internal.a [for host]
+____[67 / 741] Creating source manifest for //tensorflow/python:gen_dataset_ops_py_wrappers_cc [for host]
+____[73 / 966] Creating source manifest for //tensorflow/contrib/tensor_forest/hybrid:gen_training_ops_py_wrappers_cc [for host]
+____[82 / 992] Creating source manifest for //tensorflow/python:gen_image_ops_py_wrappers_cc [for host]
+____[84 / 996] Expanding template tensorflow/python/tools/saved_model_cli
+____[87 / 1,007] Creating source manifest for //tensorflow/contrib/layers:gen_sparse_feature_cross_op_py_wrappers_cc [for host]
+____[95 / 1,048] Creating source manifest for //tensorflow/python:gen_sparse_ops_py_wrappers_cc [for host]
+____[141 / 1,343] Creating source manifest for //tensorflow/cc:ops/remote_fused_graph_ops_gen_cc [for host]
+____[143 / 1,821] Compiling external/nanopb_git/pb_decode.c
+____[144 / 1,988] Compiling external/jsoncpp_git/src/lib_json/json_writer.cpp
+____[151 / 2,184] Compiling external/grpc/src/core/lib/support/host_port.c
+____[202 / 2,922] Expanding template tensorflow/python/debug/debug_errors
+____[206 / 2,942] Expanding template external/jpeg/jconfigint_nowin.h
+____[232 / 2,971] Creating source manifest for //tensorflow/tools/proto_text:gen_proto_text_functions [for host]
+____[294 / 2,975] Compiling external/swig/Source/Modules/uffi.cxx [for host]
+____[322 / 2,985] Creating source manifest for //tensorflow/python:gen_logging_ops_py_wrappers_cc [for host]
+____[330 / 2,985] Compiling external/protobuf/python/google/protobuf/internal/api_implementation.cc
+____[342 / 3,016] Creating source manifest for //tensorflow/python:gen_string_ops_py_wrappers_cc [for host]
+____[381 / 3,044] Compiling external/grpc/src/core/lib/surface/completion_queue.c
+____[404 / 3,044] Compiling external/grpc/src/core/ext/transport/chttp2/transport/bin_decoder.c
+____[427 / 3,044] Compiling external/grpc/src/core/lib/iomgr/load_file.c
+____[442 / 3,044] Compiling external/grpc/src/core/lib/iomgr/iomgr.c
+____[461 / 3,044] Compiling external/grpc/src/core/lib/iomgr/socket_utils_linux.c
+____[478 / 3,044] Compiling external/grpc/src/core/lib/surface/server.c
+____[585 / 3,045] Compiling external/protobuf/src/google/protobuf/compiler/js/embed.cc [for host]
+____[586 / 3,045] Executing genrule @protobuf//:protos_python_genrule
+____From Compiling external/protobuf/src/google/protobuf/compiler/js/embed.cc [for host]:
+external/protobuf/src/google/protobuf/compiler/js/embed.cc:37:12: warning: unused variable 'output_file' [-Wunused-const-variable]
+const char output_file[] = "well_known_types_embed.cc";
+           ^
+1 warning generated.
+____[685 / 3,045] Compiling external/jpeg/jmemnobs.c [for host]
+____[706 / 3,062] Compiling external/png_archive/pngmem.c
+____[739 / 3,062] Compiling external/protobuf/src/google/protobuf/stubs/bytestream.cc
+____From Compiling external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:
+external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:84:44: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        PyObject_CallMethod(py_descriptor, "SerializeToString", NULL));
+                                           ^
+external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:114:21: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      py_database_, "FindFileByName", "s#", filename.c_str(), filename.size()));
+                    ^
+external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:114:39: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      py_database_, "FindFileByName", "s#", filename.c_str(), filename.size()));
+                                      ^
+external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:122:41: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      PyObject_CallMethod(py_database_, "FindFileContainingSymbol", "s#",
+                                        ^
+external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:122:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      PyObject_CallMethod(py_database_, "FindFileContainingSymbol", "s#",
+                                                                    ^
+external/protobuf/python/google/protobuf/pyext/descriptor_database.cc:141:46: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      PyObject_CallFunction(py_method.get(), "s#i", containing_type.c_str(),
+                                             ^
+6 warnings generated.
+____From Compiling external/protobuf/python/google/protobuf/pyext/descriptor_pool.cc:
+external/protobuf/python/google/protobuf/pyext/descriptor_pool.cc:138:28: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  static char* kwlist[] = {"descriptor_db", 0};
+                           ^
+external/protobuf/python/google/protobuf/pyext/descriptor_pool.cc:518:50: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      PyObject_CallMethod(file_descriptor_proto, "SerializeToString", NULL));
+                                                 ^
+2 warnings generated.
+____From Compiling external/protobuf/python/google/protobuf/pyext/descriptor.cc:
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:596:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Last name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:596:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Last name"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:597:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:597:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:598:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_concrete_class", (getter)GetConcreteClass, NULL, "concrete class"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:598:56: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_concrete_class", (getter)GetConcreteClass, NULL, "concrete class"},
+                                                       ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:599:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "file", (getter)GetFile, NULL, "File descriptor"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:599:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "file", (getter)GetFile, NULL, "File descriptor"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:601:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields", (getter)GetFieldsSeq, NULL, "Fields sequence"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:601:43: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields", (getter)GetFieldsSeq, NULL, "Fields sequence"},
+                                          ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:602:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields_by_name", (getter)GetFieldsByName, NULL, "Fields by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:602:54: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields_by_name", (getter)GetFieldsByName, NULL, "Fields by name"},
+                                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:603:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields_by_camelcase_name", (getter)GetFieldsByCamelcaseName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:604:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Fields by camelCase name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:605:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields_by_number", (getter)GetFieldsByNumber, NULL, "Fields by number"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:605:58: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields_by_number", (getter)GetFieldsByNumber, NULL, "Fields by number"},
+                                                         ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:606:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "nested_types", (getter)GetNestedTypesSeq, NULL, "Nested types sequence"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:606:54: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "nested_types", (getter)GetNestedTypesSeq, NULL, "Nested types sequence"},
+                                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:607:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "nested_types_by_name", (getter)GetNestedTypesByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:608:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Nested types by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:609:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extensions", (getter)GetExtensions, NULL, "Extensions Sequence"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:609:48: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extensions", (getter)GetExtensions, NULL, "Extensions Sequence"},
+                                               ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:610:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extensions_by_name", (getter)GetExtensionsByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:611:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Extensions by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:612:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extension_ranges", (getter)GetExtensionRanges, NULL, "Extension ranges"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:612:59: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extension_ranges", (getter)GetExtensionRanges, NULL, "Extension ranges"},
+                                                          ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:613:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_types", (getter)GetEnumsSeq, NULL, "Enum sequence"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:613:46: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_types", (getter)GetEnumsSeq, NULL, "Enum sequence"},
+                                             ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:614:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_types_by_name", (getter)GetEnumTypesByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:615:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Enum types by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:616:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_values_by_name", (getter)GetEnumValuesByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:617:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Enum values by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:618:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "oneofs_by_name", (getter)GetOneofsByName, NULL, "Oneofs by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:618:54: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "oneofs_by_name", (getter)GetOneofsByName, NULL, "Oneofs by name"},
+                                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:619:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "oneofs", (getter)GetOneofsSeq, NULL, "Oneofs by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:619:43: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "oneofs", (getter)GetOneofsSeq, NULL, "Oneofs by name"},
+                                          ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:620:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_type", (getter)GetContainingType, (setter)SetContainingType,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:621:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Containing type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:622:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "is_extendable", (getter)IsExtendable, (setter)NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:623:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:623:66: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+                                                                 ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:624:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:624:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:625:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "syntax", (getter)GetSyntax, (setter)NULL, "Syntax"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:625:48: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "syntax", (getter)GetSyntax, (setter)NULL, "Syntax"},
+                                               ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:897:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:897:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:898:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Unqualified name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:898:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Unqualified name"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:899:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "camelcase_name", (getter)GetCamelcaseName, NULL, "Camelcase name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:899:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "camelcase_name", (getter)GetCamelcaseName, NULL, "Camelcase name"},
+                                                      ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:900:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "json_name", (getter)GetJsonName, NULL, "Json name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:900:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "json_name", (getter)GetJsonName, NULL, "Json name"},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:901:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "type", (getter)GetType, NULL, "C++ Type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:901:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "type", (getter)GetType, NULL, "C++ Type"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:902:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "cpp_type", (getter)GetCppType, NULL, "C++ Type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:902:43: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "cpp_type", (getter)GetCppType, NULL, "C++ Type"},
+                                          ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:903:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "label", (getter)GetLabel, NULL, "Label"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:903:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "label", (getter)GetLabel, NULL, "Label"},
+                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:904:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "number", (getter)GetNumber, NULL, "Number"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:904:40: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "number", (getter)GetNumber, NULL, "Number"},
+                                       ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:905:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:905:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index"},
+                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:906:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "default_value", (getter)GetDefaultValue, NULL, "Default Value"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:906:53: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "default_value", (getter)GetDefaultValue, NULL, "Default Value"},
+                                                    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:907:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_default_value", (getter)HasDefaultValue},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:908:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "is_extension", (getter)IsExtension, NULL, "ID"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:908:48: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "is_extension", (getter)IsExtension, NULL, "ID"},
+                                               ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:909:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "id", (getter)GetID, NULL, "ID"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:909:32: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "id", (getter)GetID, NULL, "ID"},
+                               ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:910:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_cdescriptor", (getter)GetCDescriptor, NULL, "HAACK REMOVE ME"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:910:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_cdescriptor", (getter)GetCDescriptor, NULL, "HAACK REMOVE ME"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:912:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "message_type", (getter)GetMessageType, (setter)SetMessageType,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:913:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Message type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:914:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_type", (getter)GetEnumType, (setter)SetEnumType, "Enum type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:914:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_type", (getter)GetEnumType, (setter)SetEnumType, "Enum type"},
+                                                           ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:915:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_type", (getter)GetContainingType, (setter)SetContainingType,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:916:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Containing type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:917:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extension_scope", (getter)GetExtensionScope, (setter)NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:918:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Extension scope"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:919:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_oneof", (getter)GetContainingOneof, (setter)SetContainingOneof,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:920:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Containing oneof"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:921:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:921:66: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+                                                                 ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:922:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:922:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1063:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1063:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1064:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "last name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1064:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "last name"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1065:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "file", (getter)GetFile, NULL, "File descriptor"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1065:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "file", (getter)GetFile, NULL, "File descriptor"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1066:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "values", (getter)GetEnumvaluesSeq, NULL, "values"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1066:47: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "values", (getter)GetEnumvaluesSeq, NULL, "values"},
+                                              ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1067:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "values_by_name", (getter)GetEnumvaluesByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1068:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Enum values by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1069:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "values_by_number", (getter)GetEnumvaluesByNumber, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1070:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Enum values by number"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1072:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_type", (getter)GetContainingType, (setter)SetContainingType,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1073:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Containing type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1074:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1074:66: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+                                                                 ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1075:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1075:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1178:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1178:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "name"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1179:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "number", (getter)GetNumber, NULL, "number"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1179:40: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "number", (getter)GetNumber, NULL, "number"},
+                                       ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1180:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "index"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1180:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "index"},
+                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1181:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "type", (getter)GetType, NULL, "index"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1181:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "type", (getter)GetType, NULL, "index"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1183:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1183:66: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+                                                                 ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1184:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1184:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1337:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "pool", (getter)GetPool, NULL, "pool"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1337:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "pool", (getter)GetPool, NULL, "pool"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1338:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1338:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "name"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1339:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "package", (getter)GetPackage, NULL, "package"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1339:42: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "package", (getter)GetPackage, NULL, "package"},
+                                         ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1340:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "serialized_pb", (getter)GetSerializedPb},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1341:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "message_types_by_name", (getter)GetMessageTypesByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1342:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Messages by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1343:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_types_by_name", (getter)GetEnumTypesByName, NULL, "Enums by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1343:61: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "enum_types_by_name", (getter)GetEnumTypesByName, NULL, "Enums by name"},
+                                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1344:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "extensions_by_name", (getter)GetExtensionsByName, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1345:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Extensions by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1346:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "services_by_name", (getter)GetServicesByName, NULL, "Services by name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1346:58: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "services_by_name", (getter)GetServicesByName, NULL, "Services by name"},
+                                                         ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1347:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "dependencies", (getter)GetDependencies, NULL, "Dependencies"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1347:52: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "dependencies", (getter)GetDependencies, NULL, "Dependencies"},
+                                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1348:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "public_dependencies", (getter)GetPublicDependencies, NULL, "Dependencies"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1348:65: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "public_dependencies", (getter)GetPublicDependencies, NULL, "Dependencies"},
+                                                                ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1350:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1350:66: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+                                                                 ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1351:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1351:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1352:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "syntax", (getter)GetSyntax, (setter)NULL, "Syntax"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1352:48: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "syntax", (getter)GetSyntax, (setter)NULL, "Syntax"},
+                                               ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1498:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1498:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Name"},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1499:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1499:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name"},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1500:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1500:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index"},
+                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1502:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_type", (getter)GetContainingType, NULL, "Containing type"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1502:57: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_type", (getter)GetContainingType, NULL, "Containing type"},
+                                                        ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1503:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1503:66: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "has_options", (getter)GetHasOptions, (setter)SetHasOptions, "Has Options"},
+                                                                 ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1504:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1504:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "_options", (getter)NULL, (setter)SetOptions, "Options"},
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1505:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields", (getter)GetFields, NULL, "Fields"},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1505:40: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "fields", (getter)GetFields, NULL, "Fields"},
+                                       ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1611:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Name", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1611:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Name", NULL},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1612:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1612:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name", NULL},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1613:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1613:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index", NULL},
+                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1615:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "methods", (getter)GetMethods, NULL, "Methods", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1615:42: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "methods", (getter)GetMethods, NULL, "Methods", NULL},
+                                         ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1616:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "methods_by_name", (getter)GetMethodsByName, NULL, "Methods by name", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1616:56: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "methods_by_name", (getter)GetMethodsByName, NULL, "Methods by name", NULL},
+                                                       ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1714:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Name", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1714:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "name", (getter)GetName, NULL, "Name", NULL},
+                                   ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1715:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1715:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "full_name", (getter)GetFullName, NULL, "Full name", NULL},
+                                            ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1716:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1716:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "index", (getter)GetIndex, NULL, "Index", NULL},
+                                     ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1717:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "containing_service", (getter)GetContainingService, NULL,
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1718:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    "Containing service", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1719:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "input_type", (getter)GetInputType, NULL, "Input type", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1719:47: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "input_type", (getter)GetInputType, NULL, "Input type", NULL},
+                                              ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1720:5: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "output_type", (getter)GetOutputType, NULL, "Output type", NULL},
+    ^
+external/protobuf/python/google/protobuf/pyext/descriptor.cc:1720:49: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  { "output_type", (getter)GetOutputType, NULL, "Output type", NULL},
+                                                ^
+177 warnings generated.
+____From Compiling external/protobuf/python/google/protobuf/pyext/message_factory.cc:
+external/protobuf/python/google/protobuf/pyext/message_factory.cc:78:28: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  static char* kwlist[] = {"pool", 0};
+                           ^
+external/protobuf/python/google/protobuf/pyext/message_factory.cc:222:6: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    {"pool", (getter)GetPool, NULL, "DescriptorPool"},
+     ^
+external/protobuf/python/google/protobuf/pyext/message_factory.cc:222:37: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    {"pool", (getter)GetPool, NULL, "DescriptorPool"},
+                                    ^
+3 warnings generated.
+____From Compiling external/protobuf/python/google/protobuf/pyext/message.cc:
+external/protobuf/python/google/protobuf/pyext/message.cc:200:28: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  static char *kwlist[] = {"name", "bases", "dict", 0};
+                           ^
+external/protobuf/python/google/protobuf/pyext/message.cc:200:36: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  static char *kwlist[] = {"name", "bases", "dict", 0};
+                                   ^
+external/protobuf/python/google/protobuf/pyext/message.cc:200:45: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  static char *kwlist[] = {"name", "bases", "dict", 0};
+                                            ^
+external/protobuf/python/google/protobuf/pyext/message.cc:395:4: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  {"_extensions_by_name", (getter)GetExtensionsByName, NULL},
+   ^
+external/protobuf/python/google/protobuf/pyext/message.cc:396:4: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  {"_extensions_by_number", (getter)GetExtensionsByNumber, NULL},
+   ^
+external/protobuf/python/google/protobuf/pyext/message.cc:634:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "int, long");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:634:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+external/protobuf/python/google/protobuf/pyext/message.cc:694:15: note: in instantiation of function template specialization 'google::protobuf::python::CheckAndGetInteger<int>' requested here
+template bool CheckAndGetInteger<int32>(PyObject*, int32*);
+              ^
+external/protobuf/python/google/protobuf/pyext/message.cc:634:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "int, long");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:695:15: note: in instantiation of function template specialization 'google::protobuf::python::CheckAndGetInteger<long>' requested here
+template bool CheckAndGetInteger<int64>(PyObject*, int64*);
+              ^
+external/protobuf/python/google/protobuf/pyext/message.cc:634:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "int, long");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:696:15: note: in instantiation of function template specialization 'google::protobuf::python::CheckAndGetInteger<unsigned int>' requested here
+template bool CheckAndGetInteger<uint32>(PyObject*, uint32*);
+              ^
+external/protobuf/python/google/protobuf/pyext/message.cc:634:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "int, long");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:697:15: note: in instantiation of function template specialization 'google::protobuf::python::CheckAndGetInteger<unsigned long>' requested here
+template bool CheckAndGetInteger<uint64>(PyObject*, uint64*);
+              ^
+external/protobuf/python/google/protobuf/pyext/message.cc:702:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "int, long, float");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:720:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "int, long, bool");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:756:28: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+      FormatTypeError(arg, "bytes, unicode");
+                           ^
+external/protobuf/python/google/protobuf/pyext/message.cc:771:26: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    FormatTypeError(arg, "bytes");
+                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:1182:38: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+              function_return.get(), "MergeFrom", "O", map_value));
+                                     ^
+external/protobuf/python/google/protobuf/pyext/message.cc:1182:51: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+              function_return.get(), "MergeFrom", "O", map_value));
+                                                  ^
+external/protobuf/python/google/protobuf/pyext/message.cc:1190:44: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            PyObject_CallMethod(map.get(), "update", "O", value));
+                                           ^
+external/protobuf/python/google/protobuf/pyext/message.cc:1190:54: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            PyObject_CallMethod(map.get(), "update", "O", value));
+                                                     ^
+external/protobuf/python/google/protobuf/pyext/message.cc:1822:42: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        PyObject_CallMethod(comma.get(), "join", "O", errors.get()));
+                                         ^
+external/protobuf/python/google/protobuf/pyext/message.cc:1822:50: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        PyObject_CallMethod(comma.get(), "join", "O", errors.get()));
+                                                 ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2609:4: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  {"Extensions", (getter)GetExtensionDict, NULL, "Extension dict"},
+   ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2609:50: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  {"Extensions", (getter)GetExtensionDict, NULL, "Extension dict"},
+                                                 ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2610:4: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  {"_extensions_by_name", (getter)GetExtensionsByName, NULL},
+   ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2611:4: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+  {"_extensions_by_number", (getter)GetExtensionsByNumber, NULL},
+   ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2949:57: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            PyObject_CallMethod(mutable_sequence.get(), "register", "O",
+                                                        ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2949:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            PyObject_CallMethod(mutable_sequence.get(), "register", "O",
+                                                                    ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2954:57: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            PyObject_CallMethod(mutable_sequence.get(), "register", "O",
+                                                        ^
+external/protobuf/python/google/protobuf/pyext/message.cc:2954:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            PyObject_CallMethod(mutable_sequence.get(), "register", "O",
+                                                                    ^
+28 warnings generated.
+____[784 / 3,062] Compiling external/grpc/src/cpp/server/server.cc
+____[798 / 3,062] Compiling external/grpc/src/cpp/server/insecure_server_credentials.cc
+____From Compiling external/protobuf/src/google/protobuf/util/time_util.cc:
+external/protobuf/src/google/protobuf/util/time_util.cc:52:18: warning: unused variable 'kMicrosPerMillisecond' [-Wunused-const-variable]
+static const int kMicrosPerMillisecond = 1000;
+                 ^
+external/protobuf/src/google/protobuf/util/time_util.cc:56:19: warning: unused variable 'kTimestampFormat' [-Wunused-const-variable]
+static const char kTimestampFormat[] = "%E4Y-%m-%dT%H:%M:%S";
+                  ^
+2 warnings generated.
+____[963 / 3,062] Linking external/protobuf/python/google/protobuf/pyext/_message.so
+____[1,026 / 3,062] Compiling external/protobuf/src/google/protobuf/compiler/java/java_message_builder.cc [for host]
+____[1,028 / 3,062] Compiling external/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.cc [for host]
+____From Compiling external/protobuf/src/google/protobuf/util/time_util.cc [for host]:
+external/protobuf/src/google/protobuf/util/time_util.cc:52:18: warning: unused variable 'kMicrosPerMillisecond' [-Wunused-const-variable]
+static const int kMicrosPerMillisecond = 1000;
+                 ^
+external/protobuf/src/google/protobuf/util/time_util.cc:56:19: warning: unused variable 'kTimestampFormat' [-Wunused-const-variable]
+static const char kTimestampFormat[] = "%E4Y-%m-%dT%H:%M:%S";
+                  ^
+2 warnings generated.
+____[1,134 / 3,062] Compiling tensorflow/core/kernels/gather_functor.cc
+____From Compiling tensorflow/core/lib/core/threadpool.cc [for host]:
+In file included from tensorflow/core/lib/core/threadpool.cc:19:
+In file included from ./third_party/eigen3/unsupported/Eigen/CXX11/Tensor:1:
+In file included from external/eigen_archive/unsupported/Eigen/CXX11/Tensor:79:
+In file included from external/eigen_archive/unsupported/Eigen/CXX11/ThreadPool:59:
+external/eigen_archive/unsupported/Eigen/CXX11/src/ThreadPool/NonBlockingThreadPool.h:28:9: warning: field 'allow_spinning_' will be initialized after field 'env_' [-Wreorder]
+        allow_spinning_(allow_spinning),
+        ^
+tensorflow/core/lib/core/threadpool.cc:89:9: note: in instantiation of member function 'Eigen::NonBlockingThreadPoolTempl<tensorflow::thread::EigenEnvironment>::NonBlockingThreadPoolTempl' requested here
+      : Eigen::ThreadPoolTempl<EigenEnvironment>(
+        ^
+1 warning generated.
+____From Compiling tensorflow/core/platform/cpu_info.cc [for host]:
+tensorflow/core/platform/cpu_info.cc:258:7: warning: private field 'highest_eax_' is not used [-Wunused-private-field]
+  int highest_eax_;
+      ^
+1 warning generated.
+____[1,299 / 3,062] Compiling tensorflow/contrib/tensor_forest/kernels/tree_utils.cc [for host]
+____[1,318 / 3,062] Compiling tensorflow/core/framework/device_attributes.pb_text.cc [for host]
+____From Compiling tensorflow/contrib/tensor_forest/kernels/tree_utils.cc [for host]:
+tensorflow/contrib/tensor_forest/kernels/tree_utils.cc:136:35: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+  Eigen::array<int, 1> offsets = {i * num_regression_dims + 1};
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                  {                          }
+tensorflow/contrib/tensor_forest/kernels/tree_utils.cc:137:35: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+  Eigen::array<int, 1> extents = {num_regression_dims - 1};
+                                  ^~~~~~~~~~~~~~~~~~~~~~~
+                                  {                      }
+2 warnings generated.
+____From Compiling tensorflow/core/ops/data_flow_ops.cc [for host]:
+tensorflow/core/ops/data_flow_ops.cc:233:8: warning: unused function 'ScalarAndTwoElementVectorInputsAndScalarOutputs' [-Wunused-function]
+Status ScalarAndTwoElementVectorInputsAndScalarOutputs(InferenceContext* c) {
+       ^
+tensorflow/core/ops/data_flow_ops.cc:252:8: warning: unused function 'ScalarOutput' [-Wunused-function]
+Status ScalarOutput(InferenceContext* c) {
+       ^
+2 warnings generated.
+____From Compiling tensorflow/core/framework/allocator.cc [for host]:
+tensorflow/core/framework/allocator.cc:113:12: warning: unused function 'MakeCpuAllocator' [-Wunused-function]
+Allocator* MakeCpuAllocator() {
+           ^
+1 warning generated.
+____From Executing genrule //tensorflow/cc:array_ops_genrule:
+2017-06-27 21:42:47.621217: W tensorflow/core/framework/op_gen_lib.cc:194] Squeeze can't find input squeeze_dims to rename
+____[1,658 / 3,062] Executing genrule //tensorflow/python:control_flow_ops_pygenrule
+____[1,673 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/contrib/rnn/kernels/lstm_ops.cc, 51 s
+        Compiling tensorflow/contrib/seq2seq/kernels/beam_search_ops.cc, 11 s
+        Compiling tensorflow/contrib/seq2seq/ops/beam_search_ops.cc, 10 s
+        Compiling tensorflow/contrib/nccl/ops/nccl_ops.cc, 10 s
+        Compiling tensorflow/contrib/factorization/ops/clustering_ops.cc, 10 s
+        Compiling tensorflow/contrib/factorization/kernels/clustering_ops.cc, 10 s
+____From Compiling tensorflow/contrib/image/kernels/image_ops.cc:
+tensorflow/contrib/image/kernels/image_ops.cc:35:10: warning: class template 'FillProjectiveTransform' was previously declared as a struct template [-Wmismatched-tags]
+template class FillProjectiveTransform<CPUDevice, uint8>;
+         ^
+./tensorflow/contrib/image/kernels/image_ops.h:142:8: note: previous use is here
+struct FillProjectiveTransform {
+       ^
+tensorflow/contrib/image/kernels/image_ops.cc:35:10: note: did you mean struct here?
+template class FillProjectiveTransform<CPUDevice, uint8>;
+         ^~~~~
+         struct
+tensorflow/contrib/image/kernels/image_ops.cc:36:10: warning: class template 'FillProjectiveTransform' was previously declared as a struct template [-Wmismatched-tags]
+template class FillProjectiveTransform<CPUDevice, int32>;
+         ^
+./tensorflow/contrib/image/kernels/image_ops.h:142:8: note: previous use is here
+struct FillProjectiveTransform {
+       ^
+tensorflow/contrib/image/kernels/image_ops.cc:36:10: note: did you mean struct here?
+template class FillProjectiveTransform<CPUDevice, int32>;
+         ^~~~~
+         struct
+tensorflow/contrib/image/kernels/image_ops.cc:37:10: warning: class template 'FillProjectiveTransform' was previously declared as a struct template [-Wmismatched-tags]
+template class FillProjectiveTransform<CPUDevice, int64>;
+         ^
+./tensorflow/contrib/image/kernels/image_ops.h:142:8: note: previous use is here
+struct FillProjectiveTransform {
+       ^
+tensorflow/contrib/image/kernels/image_ops.cc:37:10: note: did you mean struct here?
+template class FillProjectiveTransform<CPUDevice, int64>;
+         ^~~~~
+         struct
+tensorflow/contrib/image/kernels/image_ops.cc:38:10: warning: class template 'FillProjectiveTransform' was previously declared as a struct template [-Wmismatched-tags]
+template class FillProjectiveTransform<CPUDevice, float>;
+         ^
+./tensorflow/contrib/image/kernels/image_ops.h:142:8: note: previous use is here
+struct FillProjectiveTransform {
+       ^
+tensorflow/contrib/image/kernels/image_ops.cc:38:10: note: did you mean struct here?
+template class FillProjectiveTransform<CPUDevice, float>;
+         ^~~~~
+         struct
+tensorflow/contrib/image/kernels/image_ops.cc:39:10: warning: class template 'FillProjectiveTransform' was previously declared as a struct template [-Wmismatched-tags]
+template class FillProjectiveTransform<CPUDevice, double>;
+         ^
+./tensorflow/contrib/image/kernels/image_ops.h:142:8: note: previous use is here
+struct FillProjectiveTransform {
+       ^
+tensorflow/contrib/image/kernels/image_ops.cc:39:10: note: did you mean struct here?
+template class FillProjectiveTransform<CPUDevice, double>;
+         ^~~~~
+         struct
+5 warnings generated.
+____From Compiling tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:87:15: warning: 'DoFeature' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  StringPiece DoFeature(int64 batch, int64 n, StringPiece not_used) const {
+              ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:498:32: note: in instantiation of template class 'tensorflow::(anonymous namespace)::SparseTensorColumn<tensorflow::StringPiece>' requested here
+      columns.emplace_back(new SparseTensorColumn<InternalType>(
+                               ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:351:9: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, tensorflow::StringPiece, false>::GenerateColumnsFromInput' requested here
+        GenerateColumnsFromInput(indices_list_in, values_list_in,
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:325:12: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, tensorflow::StringPiece, false>::Compute' requested here
+  explicit SparseFeatureCrossOp(OpKernelConstruction* context)
+           ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:594:25: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, tensorflow::StringPiece, false>::SparseFeatureCrossOp' requested here
+                        SparseFeatureCrossOp<false, StringPiece, false>);
+                        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:49:24: note: overridden virtual function is here
+  virtual InternalType DoFeature(int64 batch, int64 n,
+                       ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:121:15: warning: 'DoFeature' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  StringPiece DoFeature(int64 batch, int64 n, StringPiece not_used) const {
+              ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:504:15: note: in instantiation of template class 'tensorflow::(anonymous namespace)::DenseTensorColumn<tensorflow::StringPiece>' requested here
+          new DenseTensorColumn<InternalType>(dense_list_in[i]));
+              ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:351:9: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, tensorflow::StringPiece, false>::GenerateColumnsFromInput' requested here
+        GenerateColumnsFromInput(indices_list_in, values_list_in,
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:325:12: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, tensorflow::StringPiece, false>::Compute' requested here
+  explicit SparseFeatureCrossOp(OpKernelConstruction* context)
+           ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:594:25: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, tensorflow::StringPiece, false>::SparseFeatureCrossOp' requested here
+                        SparseFeatureCrossOp<false, StringPiece, false>);
+                        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:49:24: note: overridden virtual function is here
+  virtual InternalType DoFeature(int64 batch, int64 n,
+                       ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:80:10: warning: 'DoFeature' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  string DoFeature(int64 batch, int64 n, string not_used) const {
+         ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:498:32: note: in instantiation of template class 'tensorflow::(anonymous namespace)::SparseTensorColumn<std::__1::basic_string<char> >' requested here
+      columns.emplace_back(new SparseTensorColumn<InternalType>(
+                               ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:351:9: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, std::__1::basic_string<char>, false>::GenerateColumnsFromInput' requested here
+        GenerateColumnsFromInput(indices_list_in, values_list_in,
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:325:12: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, std::__1::basic_string<char>, false>::Compute' requested here
+  explicit SparseFeatureCrossOp(OpKernelConstruction* context)
+           ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:600:25: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, std::__1::basic_string<char>, false>::SparseFeatureCrossOp' requested here
+                        SparseFeatureCrossOp<false, string, false>);
+                        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:49:24: note: overridden virtual function is here
+  virtual InternalType DoFeature(int64 batch, int64 n,
+                       ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:116:10: warning: 'DoFeature' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  string DoFeature(int64 batch, int64 n, string not_used) const {
+         ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:504:15: note: in instantiation of template class 'tensorflow::(anonymous namespace)::DenseTensorColumn<std::__1::basic_string<char> >' requested here
+          new DenseTensorColumn<InternalType>(dense_list_in[i]));
+              ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:351:9: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, std::__1::basic_string<char>, false>::GenerateColumnsFromInput' requested here
+        GenerateColumnsFromInput(indices_list_in, values_list_in,
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:325:12: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, std::__1::basic_string<char>, false>::Compute' requested here
+  explicit SparseFeatureCrossOp(OpKernelConstruction* context)
+           ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:600:25: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<false, std::__1::basic_string<char>, false>::SparseFeatureCrossOp' requested here
+                        SparseFeatureCrossOp<false, string, false>);
+                        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:49:24: note: overridden virtual function is here
+  virtual InternalType DoFeature(int64 batch, int64 n,
+                       ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:72:9: warning: 'DoFeature' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  int64 DoFeature(int64 batch, int64 n, int64 not_used) const {
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:498:32: note: in instantiation of template class 'tensorflow::(anonymous namespace)::SparseTensorColumn<long long>' requested here
+      columns.emplace_back(new SparseTensorColumn<InternalType>(
+                               ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:351:9: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<true, long long, false>::GenerateColumnsFromInput' requested here
+        GenerateColumnsFromInput(indices_list_in, values_list_in,
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:325:12: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<true, long long, false>::Compute' requested here
+  explicit SparseFeatureCrossOp(OpKernelConstruction* context)
+           ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:606:25: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<true, long long, false>::SparseFeatureCrossOp' requested here
+                        SparseFeatureCrossOp<true, int64, false>);
+                        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:49:24: note: overridden virtual function is here
+  virtual InternalType DoFeature(int64 batch, int64 n,
+                       ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:109:9: warning: 'DoFeature' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  int64 DoFeature(int64 batch, int64 n, int64 not_used) const {
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:504:15: note: in instantiation of template class 'tensorflow::(anonymous namespace)::DenseTensorColumn<long long>' requested here
+          new DenseTensorColumn<InternalType>(dense_list_in[i]));
+              ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:351:9: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<true, long long, false>::GenerateColumnsFromInput' requested here
+        GenerateColumnsFromInput(indices_list_in, values_list_in,
+        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:325:12: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<true, long long, false>::Compute' requested here
+  explicit SparseFeatureCrossOp(OpKernelConstruction* context)
+           ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:606:25: note: in instantiation of member function 'tensorflow::SparseFeatureCrossOp<true, long long, false>::SparseFeatureCrossOp' requested here
+                        SparseFeatureCrossOp<true, int64, false>);
+                        ^
+tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc:49:24: note: overridden virtual function is here
+  virtual InternalType DoFeature(int64 batch, int64 n,
+                       ^
+6 warnings generated.
+____[1,726 / 3,062] Compiling tensorflow/contrib/rnn/kernels/blas_gemm.cc
+____From Compiling tensorflow/contrib/tensor_forest/kernels/tree_utils.cc:
+tensorflow/contrib/tensor_forest/kernels/tree_utils.cc:136:35: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+  Eigen::array<int, 1> offsets = {i * num_regression_dims + 1};
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                  {                          }
+tensorflow/contrib/tensor_forest/kernels/tree_utils.cc:137:35: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+  Eigen::array<int, 1> extents = {num_regression_dims - 1};
+                                  ^~~~~~~~~~~~~~~~~~~~~~~
+                                  {                      }
+2 warnings generated.
+____[1,752 / 3,062] Linking tensorflow/contrib/cudnn_rnn/python/ops/_cudnn_rnn_ops.so
+____[1,772 / 3,062] Compiling tensorflow/core/lib/io/zlib_inputstream.cc
+____From Compiling tensorflow/core/lib/core/threadpool.cc:
+In file included from tensorflow/core/lib/core/threadpool.cc:19:
+In file included from ./third_party/eigen3/unsupported/Eigen/CXX11/Tensor:1:
+In file included from external/eigen_archive/unsupported/Eigen/CXX11/Tensor:79:
+In file included from external/eigen_archive/unsupported/Eigen/CXX11/ThreadPool:59:
+external/eigen_archive/unsupported/Eigen/CXX11/src/ThreadPool/NonBlockingThreadPool.h:28:9: warning: field 'allow_spinning_' will be initialized after field 'env_' [-Wreorder]
+        allow_spinning_(allow_spinning),
+        ^
+tensorflow/core/lib/core/threadpool.cc:89:9: note: in instantiation of member function 'Eigen::NonBlockingThreadPoolTempl<tensorflow::thread::EigenEnvironment>::NonBlockingThreadPoolTempl' requested here
+      : Eigen::ThreadPoolTempl<EigenEnvironment>(
+        ^
+1 warning generated.
+____From Compiling tensorflow/core/platform/cpu_info.cc:
+tensorflow/core/platform/cpu_info.cc:258:7: warning: private field 'highest_eax_' is not used [-Wunused-private-field]
+  int highest_eax_;
+      ^
+1 warning generated.
+____[1,848 / 3,062] Compiling tensorflow/stream_executor/rng.cc
+____[1,904 / 3,062] Compiling tensorflow/core/framework/load_library.cc
+____From Compiling tensorflow/core/framework/allocator.cc:
+tensorflow/core/framework/allocator.cc:113:12: warning: unused function 'MakeCpuAllocator' [-Wunused-function]
+Allocator* MakeCpuAllocator() {
+           ^
+1 warning generated.
+____[1,977 / 3,062] Compiling tensorflow/core/distributed_runtime/server_lib.cc
+____[1,979 / 3,062] Compiling tensorflow/python/framework/python_op_gen.cc
+____From Compiling tensorflow/tools/tfprof/internal/tfprof_tensor.cc:
+In file included from tensorflow/tools/tfprof/internal/tfprof_tensor.cc:16:
+./tensorflow/tools/tfprof/internal/tfprof_tensor.h:79:24: warning: format specifies type 'long long' but the argument has type '::google::protobuf::int64' (aka 'long') [-Wformat]
+              "%lld ", dim->value_int64(dim->value_int64_size() - 1));
+               ~~~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               %ld
+tensorflow/tools/tfprof/internal/tfprof_tensor.cc:48:7: note: in instantiation of function template specialization 'tensorflow::tfprof::TFProfTensor::BuildOutput<double>' requested here
+      BuildOutput<double>(0, 0, values_vec, &tfprof_tensor_pb_);
+      ^
+In file included from tensorflow/tools/tfprof/internal/tfprof_tensor.cc:16:
+./tensorflow/tools/tfprof/internal/tfprof_tensor.h:79:24: warning: format specifies type 'long long' but the argument has type '::google::protobuf::int64' (aka 'long') [-Wformat]
+              "%lld ", dim->value_int64(dim->value_int64_size() - 1));
+               ~~~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               %ld
+tensorflow/tools/tfprof/internal/tfprof_tensor.cc:60:7: note: in instantiation of function template specialization 'tensorflow::tfprof::TFProfTensor::BuildOutput<long long>' requested here
+      BuildOutput<int64>(0, 0, values_vec, &tfprof_tensor_pb_);
+      ^
+In file included from tensorflow/tools/tfprof/internal/tfprof_tensor.cc:16:
+./tensorflow/tools/tfprof/internal/tfprof_tensor.h:79:24: warning: format specifies type 'long long' but the argument has type '::google::protobuf::int64' (aka 'long') [-Wformat]
+              "%lld ", dim->value_int64(dim->value_int64_size() - 1));
+               ~~~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               %ld
+tensorflow/tools/tfprof/internal/tfprof_tensor.cc:67:7: note: in instantiation of function template specialization 'tensorflow::tfprof::TFProfTensor::BuildOutput<std::__1::basic_string<char> >' requested here
+      BuildOutput<string>(0, 0, values_vec, &tfprof_tensor_pb_);
+      ^
+3 warnings generated.
+____From Compiling tensorflow/core/kernels/sdca_ops.cc:
+tensorflow/core/kernels/sdca_ops.cc:157:28: warning: 'guarded_by' attribute only applies to fields and global variables [-Wignored-attributes]
+  Status train_step_status GUARDED_BY(mu);
+                           ^
+./tensorflow/core/platform/default/thread_annotations.h:52:53: note: expanded from macro 'GUARDED_BY'
+#define GUARDED_BY(x) THREAD_ANNOTATION_ATTRIBUTE__(guarded_by(x))
+                                                    ^
+1 warning generated.
+____From Compiling tensorflow/core/kernels/sdca_internal.cc:
+tensorflow/core/kernels/sdca_internal.cc:49:9: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+        Eigen::IndexPair<int>(1, 0)};
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+        {                          }
+tensorflow/core/kernels/sdca_internal.cc:210:11: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+          Eigen::IndexPair<int>(1, 1)};
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+          {                          }
+tensorflow/core/kernels/sdca_internal.cc:381:17: warning: 'guarded_by' attribute only applies to fields and global variables [-Wignored-attributes]
+  Status result GUARDED_BY(mu);
+                ^
+./tensorflow/core/platform/default/thread_annotations.h:52:53: note: expanded from macro 'GUARDED_BY'
+#define GUARDED_BY(x) THREAD_ANNOTATION_ATTRIBUTE__(guarded_by(x))
+                                                    ^
+tensorflow/core/kernels/sdca_internal.cc:459:17: warning: 'guarded_by' attribute only applies to fields and global variables [-Wignored-attributes]
+  Status result GUARDED_BY(mu);
+                ^
+./tensorflow/core/platform/default/thread_annotations.h:52:53: note: expanded from macro 'GUARDED_BY'
+#define GUARDED_BY(x) THREAD_ANNOTATION_ATTRIBUTE__(guarded_by(x))
+                                                    ^
+4 warnings generated.
+____From Compiling tensorflow/core/ops/data_flow_ops.cc:
+tensorflow/core/ops/data_flow_ops.cc:233:8: warning: unused function 'ScalarAndTwoElementVectorInputsAndScalarOutputs' [-Wunused-function]
+Status ScalarAndTwoElementVectorInputsAndScalarOutputs(InferenceContext* c) {
+       ^
+tensorflow/core/ops/data_flow_ops.cc:252:8: warning: unused function 'ScalarOutput' [-Wunused-function]
+Status ScalarOutput(InferenceContext* c) {
+       ^
+2 warnings generated.
+____From Compiling tensorflow/core/kernels/priority_queue.cc:
+In file included from tensorflow/core/kernels/priority_queue.cc:24:
+In file included from ./tensorflow/core/kernels/priority_queue.h:27:
+./tensorflow/core/kernels/typed_queue.h:83:7: warning: unused function 'SizeOf' [-Wunused-function]
+int64 SizeOf(const std::deque<PersistentTensor>& sq) {
+      ^
+./tensorflow/core/kernels/typed_queue.h:91:7: warning: unused function 'SizeOf' [-Wunused-function]
+int64 SizeOf(const std::vector<PersistentTensor>& sq) {
+      ^
+2 warnings generated.
+____From Compiling tensorflow/core/kernels/fifo_queue.cc:
+In file included from tensorflow/core/kernels/fifo_queue.cc:25:
+In file included from ./tensorflow/core/kernels/fifo_queue.h:26:
+./tensorflow/core/kernels/typed_queue.h:91:7: warning: unused function 'SizeOf' [-Wunused-function]
+int64 SizeOf(const std::vector<PersistentTensor>& sq) {
+      ^
+1 warning generated.
+____From Compiling tensorflow/core/kernels/padding_fifo_queue.cc:
+In file included from tensorflow/core/kernels/padding_fifo_queue.cc:25:
+In file included from ./tensorflow/core/kernels/padding_fifo_queue.h:27:
+In file included from ./tensorflow/core/kernels/fifo_queue.h:26:
+./tensorflow/core/kernels/typed_queue.h:91:7: warning: unused function 'SizeOf' [-Wunused-function]
+int64 SizeOf(const std::vector<PersistentTensor>& sq) {
+      ^
+1 warning generated.
+____From Compiling tensorflow/core/kernels/batch_dataset_op.cc:
+tensorflow/core/kernels/batch_dataset_op.cc:208:13: warning: private field 'i_' is not used [-Wunused-private-field]
+      int64 i_ GUARDED_BY(mu_);
+            ^
+1 warning generated.
+____[2,200 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/padded_batch_dataset_op.cc, 24 s
+        Compiling tensorflow/core/kernels/matrix_solve_ls_op.cc, 17 s
+        Compiling tensorflow/core/kernels/svd_op_complex64.cc, 16 s
+        Compiling tensorflow/core/kernels/svd_op_complex128.cc, 14 s
+        Compiling tensorflow/core/kernels/svd_op_double.cc, 14 s
+        Compiling tensorflow/core/kernels/svd_op_float.cc, 10 s
+____From Compiling tensorflow/core/kernels/padded_batch_dataset_op.cc:
+tensorflow/core/kernels/padded_batch_dataset_op.cc:362:13: warning: private field 'i_' is not used [-Wunused-private-field]
+      int64 i_ GUARDED_BY(mu_);
+            ^
+1 warning generated.
+____[2,202 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/matrix_solve_ls_op.cc, 44 s
+        Compiling tensorflow/core/kernels/svd_op_complex64.cc, 43 s
+        Compiling tensorflow/core/kernels/svd_op_complex128.cc, 41 s
+        Compiling tensorflow/core/kernels/svd_op_double.cc, 40 s
+        Compiling tensorflow/core/kernels/svd_op_float.cc, 37 s
+        Compiling tensorflow/core/kernels/matrix_triangular_solve_op.cc, 10 s
+____[2,204 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/matrix_solve_ls_op.cc, 69 s
+        Compiling tensorflow/core/kernels/svd_op_complex64.cc, 68 s
+        Compiling tensorflow/core/kernels/svd_op_complex128.cc, 67 s
+        Compiling tensorflow/core/kernels/svd_op_double.cc, 66 s
+        Compiling tensorflow/core/kernels/svd_op_float.cc, 63 s
+        Compiling tensorflow/core/kernels/self_adjoint_eig_op.cc, 10 s
+____[2,206 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/svd_op_complex64.cc, 92 s
+        Compiling tensorflow/core/kernels/svd_op_complex128.cc, 90 s
+        Compiling tensorflow/core/kernels/svd_op_double.cc, 90 s
+        Compiling tensorflow/core/kernels/svd_op_float.cc, 86 s
+        Compiling tensorflow/core/kernels/self_adjoint_eig_op.cc, 34 s
+        Compiling tensorflow/core/kernels/cholesky_op.cc, 10 s
+____From Compiling tensorflow/core/kernels/scatter_op.cc:
+In file included from tensorflow/core/kernels/scatter_op.cc:21:
+./tensorflow/core/kernels/scatter_functor.h:129:31: warning: destination for this 'memmove' call is a pointer to dynamic class 'ResourceHandle'; vtable pointer will be overwritten [-Wdynamic-class-memaccess]
+        memmove(params.data() + index * params.dimension(1),
+        ~~~~~~~               ^
+tensorflow/core/kernels/scatter_op.cc:123:27: note: in instantiation of member function 'tensorflow::functor::ScatterFunctorBase<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, int, tensorflow::scatter_op::UpdateOp::ASSIGN>::operator()' requested here
+      const Index bad_i = functor(c, c->template eigen_device<Device>(),
+                          ^
+tensorflow/core/kernels/scatter_op.cc:83:7: note: in instantiation of member function 'tensorflow::ScatterUpdateOp<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, int, tensorflow::scatter_op::UpdateOp::ASSIGN>::DoCompute' requested here
+      DoCompute(c);
+      ^
+tensorflow/core/kernels/scatter_op.cc:75:12: note: in instantiation of member function 'tensorflow::ScatterUpdateOp<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, int, tensorflow::scatter_op::UpdateOp::ASSIGN>::Compute' requested here
+  explicit ScatterUpdateOp(OpKernelConstruction* c) : OpKernel(c) {
+           ^
+tensorflow/core/kernels/scatter_op.cc:162:19: note: in instantiation of member function 'tensorflow::ScatterUpdateOp<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, int, tensorflow::scatter_op::UpdateOp::ASSIGN>::ScatterUpdateOp' requested here
+TF_CALL_ALL_TYPES(REGISTER_SCATTER_UPDATE_CPU);
+                  ^
+./tensorflow/core/kernels/scatter_functor.h:129:31: note: explicitly cast the pointer to silence this warning
+        memmove(params.data() + index * params.dimension(1),
+                              ^
+                (void*)
+./tensorflow/core/kernels/scatter_functor.h:129:31: warning: destination for this 'memmove' call is a pointer to dynamic class 'ResourceHandle'; vtable pointer will be overwritten [-Wdynamic-class-memaccess]
+        memmove(params.data() + index * params.dimension(1),
+        ~~~~~~~               ^
+tensorflow/core/kernels/scatter_op.cc:123:27: note: in instantiation of member function 'tensorflow::functor::ScatterFunctorBase<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, long long, tensorflow::scatter_op::UpdateOp::ASSIGN>::operator()' requested here
+      const Index bad_i = functor(c, c->template eigen_device<Device>(),
+                          ^
+tensorflow/core/kernels/scatter_op.cc:83:7: note: in instantiation of member function 'tensorflow::ScatterUpdateOp<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, long long, tensorflow::scatter_op::UpdateOp::ASSIGN>::DoCompute' requested here
+      DoCompute(c);
+      ^
+tensorflow/core/kernels/scatter_op.cc:75:12: note: in instantiation of member function 'tensorflow::ScatterUpdateOp<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, long long, tensorflow::scatter_op::UpdateOp::ASSIGN>::Compute' requested here
+  explicit ScatterUpdateOp(OpKernelConstruction* c) : OpKernel(c) {
+           ^
+tensorflow/core/kernels/scatter_op.cc:162:19: note: in instantiation of member function 'tensorflow::ScatterUpdateOp<Eigen::ThreadPoolDevice, tensorflow::ResourceHandle, long long, tensorflow::scatter_op::UpdateOp::ASSIGN>::ScatterUpdateOp' requested here
+TF_CALL_ALL_TYPES(REGISTER_SCATTER_UPDATE_CPU);
+                  ^
+./tensorflow/core/kernels/scatter_functor.h:129:31: note: explicitly cast the pointer to silence this warning
+        memmove(params.data() + index * params.dimension(1),
+                              ^
+                (void*)
+2 warnings generated.
+____[2,262 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/training_ops.cc, 45 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_4.cc, 32 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_5.cc, 28 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_7.cc, 19 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_1.cc, 15 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_3.cc, 10 s
+____[2,264 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/training_ops.cc, 76 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_7.cc, 50 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_1.cc, 45 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_3.cc, 41 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_6.cc, 17 s
+        Compiling tensorflow/core/kernels/strided_slice_op_inst_2.cc, 10 s
+____[2,267 / 3,062] Compiling tensorflow/core/ops/logging_ops.cc
+____[2,339 / 3,062] Compiling tensorflow/core/grappler/optimizers/static_schedule.cc
+____From Compiling tensorflow/core/debug/debug_io_utils.cc:
+tensorflow/core/debug/debug_io_utils.cc:396:15: warning: unused function 'CloseDebugURL' [-Wunused-function]
+static Status CloseDebugURL(const string& debug_url) { return Status::OK(); }
+              ^
+1 warning generated.
+____[2,407 / 3,062] Compiling tensorflow/core/common_runtime/sycl/sycl_device_context.cc
+____[2,489 / 3,062] Compiling tensorflow/core/kernels/tile_ops_cpu_impl_7.cc
+____[2,491 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/bias_op.cc, 21 s
+        Compiling tensorflow/core/kernels/transpose_functor_cpu.cc, 15 s
+        Compiling tensorflow/core/kernels/tile_ops_cpu_impl_3.cc, 14 s
+        Compiling tensorflow/core/kernels/tile_ops.cc, 12 s
+        Compiling tensorflow/core/kernels/tile_ops_cpu_impl_7.cc, 10 s
+        Compiling tensorflow/core/kernels/tile_ops_cpu_impl_5.cc, 10 s
+____[2,507 / 3,062] Compiling tensorflow/core/kernels/gather_nd_op.cc
+____[2,514 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/gather_nd_op_cpu_impl_0.cc, 24 s
+        Compiling tensorflow/core/kernels/gather_nd_op_cpu_impl_5.cc, 24 s
+        Compiling tensorflow/core/kernels/gather_nd_op_cpu_impl_1.cc, 19 s
+        Compiling tensorflow/core/kernels/gather_nd_op_cpu_impl_3.cc, 14 s
+        Compiling tensorflow/core/kernels/gather_nd_op_cpu_impl_2.cc, 14 s
+        Compiling tensorflow/core/kernels/gather_nd_op_cpu_impl_4.cc, 10 s
+____[2,608 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/reduction_ops_sum.cc, 30 s
+        Compiling tensorflow/core/kernels/reduction_ops_mean.cc, 26 s
+        Compiling tensorflow/core/kernels/reduction_ops_min.cc, 25 s
+        Compiling tensorflow/core/kernels/reduction_ops_max.cc, 25 s
+        Compiling tensorflow/core/kernels/reduction_ops_prod.cc, 17 s
+        Compiling tensorflow/core/kernels/scan_ops.cc, 10 s
+____[2,610 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/reduction_ops_sum.cc, 56 s
+        Compiling tensorflow/core/kernels/reduction_ops_mean.cc, 51 s
+        Compiling tensorflow/core/kernels/reduction_ops_min.cc, 50 s
+        Compiling tensorflow/core/kernels/reduction_ops_max.cc, 50 s
+        Compiling tensorflow/core/kernels/reduction_ops_prod.cc, 42 s
+        Compiling tensorflow/core/kernels/cross_op.cc, 11 s
+____[2,637 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/cwise_op_greater.cc, 75 s
+        Compiling tensorflow/core/kernels/cwise_op_equal_to_1.cc, 65 s
+        Compiling tensorflow/core/kernels/cwise_op_pow.cc, 35 s
+        Compiling tensorflow/core/kernels/cwise_op_less_equal.cc, 27 s
+        Compiling tensorflow/core/kernels/cwise_op_floor_div.cc, 17 s
+        Compiling tensorflow/core/kernels/cwise_op_maximum.cc, 10 s
+____[2,644 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/cwise_op_pow.cc, 82 s
+        Compiling tensorflow/core/kernels/cwise_op_less_equal.cc, 74 s
+        Compiling tensorflow/core/kernels/cwise_op_floor_div.cc, 65 s
+        Compiling tensorflow/core/kernels/cwise_op_maximum.cc, 58 s
+        Compiling tensorflow/core/kernels/cwise_op_rsqrt.cc, 17 s
+        Compiling tensorflow/core/kernels/cwise_op_conj.cc, 10 s
+____[2,647 / 3,062] Still waiting for 6 jobs to complete:
+      Running (standalone):
+        Compiling tensorflow/core/kernels/cwise_op_pow.cc, 101 s
+        Compiling tensorflow/core/kernels/cwise_op_less_equal.cc, 93 s
+        Compiling tensorflow/core/kernels/cwise_op_maximum.cc, 76 s
+        Compiling tensorflow/core/kernels/cwise_op_equal_to_2.cc, 18 s
+        Compiling tensorflow/core/kernels/cwise_op_minimum.cc, 17 s
+        Compiling tensorflow/core/kernels/cwise_op_logical_or.cc, 11 s
+*** Signal 9
+
+Stop.
+make: stopped in /usr/ports/science/tensorflow
