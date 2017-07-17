@@ -1,0 +1,409 @@
+build started at Mon Jul 17 09:23:14 CST 2017
+port directory: /usr/ports/devel/bear
+building for: FreeBSD 103i386-default 10.3-RELEASE-p19 FreeBSD 10.3-RELEASE-p19 i386
+maintained by: amutu@amutu.com
+Makefile ident: 
+Poudriere version: 3.1.17
+Host OSVERSION: 1100122
+Jail OSVERSION: 1003000
+Job Id: 
+
+---Begin Environment---
+PKGREPOSITORY=/tmp/pkgs
+PACKAGES=/tmp/pkgs
+SHELL=/bin/csh
+UNAME_p=i386
+UNAME_m=i386
+OSVERSION=1003000
+UNAME_v=FreeBSD 10.3-RELEASE-p19
+UNAME_r=10.3-RELEASE-p19
+BLOCKSIZE=K
+MAIL=/var/mail/root
+STATUS=1
+SAVED_TERM=xterm
+NO_WARNING_PKG_INSTALL_EOL=yes
+MASTERMNT=/usr/local/poudriere/data/.m/103i386-default/ref
+FORCE_PACKAGE=yes
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/root/bin
+POUDRIERE_BUILD_TYPE=bulk
+OLDPWD=/usr/local/poudriere/data/.m/103i386-default/ref/.p/pool
+PWD=/usr/local/poudriere/data/.m/103i386-default/ref/usr/ports/devel/bear
+MASTERNAME=103i386-default
+SCRIPTPREFIX=/usr/local/share/poudriere
+USER=root
+HOME=/root
+POUDRIERE_VERSION=3.1.17
+SCRIPTPATH=/usr/local/share/poudriere/testport.sh
+TRYBROKEN=yes
+LIBEXECPREFIX=/usr/local/libexec/poudriere
+LOCALBASE=/usr/local
+PACKAGE_BUILDING=yes
+POUDRIEREPATH=/usr/local/bin/poudriere
+---End Environment---
+
+---Begin OPTIONS List---
+===> The following configuration options are available for py27-bear-2.3.6:
+     DOCS=on: Build and/or install documentation
+===> Use 'make config' to modify these settings
+---End OPTIONS List---
+
+--CONFIGURE_ARGS--
+
+--End CONFIGURE_ARGS--
+
+--CONFIGURE_ENV--
+PYTHON="/usr/local/bin/python2.7" XDG_DATA_HOME=/wrkdirs/usr/ports/devel/bear/work  XDG_CONFIG_HOME=/wrkdirs/usr/ports/devel/bear/work  HOME=/wrkdirs/usr/ports/devel/bear/work TMPDIR="/tmp" SHELL=/bin/sh CONFIG_SHELL=/bin/sh
+--End CONFIGURE_ENV--
+
+--MAKE_ENV--
+XDG_DATA_HOME=/wrkdirs/usr/ports/devel/bear/work  XDG_CONFIG_HOME=/wrkdirs/usr/ports/devel/bear/work  HOME=/wrkdirs/usr/ports/devel/bear/work TMPDIR="/tmp" NO_PIE=yes WITHOUT_DEBUG_FILES=yes WITHOUT_KERNEL_SYMBOLS=yes SHELL=/bin/sh NO_LINT=YES DESTDIR=/wrkdirs/usr/ports/devel/bear/work/stage PREFIX=/usr/local  LOCALBASE=/usr/local  LIBDIR="/usr/lib"  CC="cc" CFLAGS="-O2 -pipe  -fstack-protector -fno-strict-aliasing"  CPP="cpp" CPPFLAGS=""  LDFLAGS=" -fstack-protector" LIBS=""  CXX="c++" CXXFLAGS="-O2 -pipe -fstack-protector -fno-strict-aliasing "  MANPREFIX="/usr/local" BSD_INSTALL_PROGRAM="install  -s -m 555"  BSD_INSTALL_LIB="install  -s -m 0644"  BSD_INSTALL_SCRIPT="install  -m 555"  BSD_INSTALL_DATA="install  -m 0644"  BSD_INSTALL_MAN="install  -m 444"
+--End MAKE_ENV--
+
+--PLIST_SUB--
+CMAKE_BUILD_TYPE="release"
+PYTHON_INCLUDEDIR=include/python2.7
+PYTHON_LIBDIR=lib/python2.7
+PYTHON_PLATFORM=freebsd10
+PYTHON_PYOEXTENSION=pyo
+PYTHON_SITELIBDIR=lib/python2.7/site-packages
+PYTHON_SUFFIX=27
+PYTHON_VER=2.7
+PYTHON_VERSION=python2.7
+PYTHON2=""
+PYTHON3="@comment
+"
+OSREL=10.3
+PREFIX=%D
+LOCALBASE=/usr/local
+RESETPREFIX=/usr/local
+PORTDOCS=""
+PORTEXAMPLES=""
+LIB32DIR=lib
+DOCSDIR="share/doc/bear"
+EXAMPLESDIR="share/examples/bear"
+DATADIR="share/bear"
+WWWDIR="www/bear"
+ETCDIR="etc/bear"
+--End PLIST_SUB--
+
+--SUB_LIST--
+PREFIX=/usr/local
+LOCALBASE=/usr/local
+DATADIR=/usr/local/share/bear
+DOCSDIR=/usr/local/share/doc/bear
+EXAMPLESDIR=/usr/local/share/examples/bear
+WWWDIR=/usr/local/www/bear
+ETCDIR=/usr/local/etc/bear
+--End SUB_LIST--
+
+---Begin make.conf---
+USE_PACKAGE_DEPENDS=yes
+BATCH=yes
+WRKDIRPREFIX=/wrkdirs
+PORTSDIR=/usr/ports
+PACKAGES=/packages
+DISTDIR=/distfiles
+MACHINE=i386
+MACHINE_ARCH=i386
+ARCH=${MACHINE_ARCH}
+#### /usr/ports/Mk/Scripts/ports_env.sh ####
+ARCH=i386
+CONFIGURE_MAX_CMD_LEN=262144
+OPSYS=FreeBSD
+OSREL=10.3
+OSVERSION=1003000
+PYTHONBASE=/usr/local
+UID=0
+_JAVA_OS_LIST_REGEXP=native\|linux
+_JAVA_VENDOR_LIST_REGEXP=openjdk\|oracle\|sun
+_JAVA_VERSION_LIST_REGEXP=1.6\|1.7\|1.8\|1.6+\|1.7+\|1.8+
+_OSRELEASE=10.3-RELEASE-p19
+_SMP_CPUS=8
+#### Misc Poudriere ####
+GID=0
+---End make.conf---
+--Resource limits--
+cpu time               (seconds, -t)  unlimited
+file size           (512-blocks, -f)  unlimited
+data seg size           (kbytes, -d)  524288
+stack size              (kbytes, -s)  65536
+core file size      (512-blocks, -c)  unlimited
+max memory size         (kbytes, -m)  unlimited
+locked memory           (kbytes, -l)  unlimited
+max user processes              (-u)  19486
+open files                      (-n)  1024
+virtual mem size        (kbytes, -v)  unlimited
+swap limit              (kbytes, -w)  unlimited
+sbsize                   (bytes, -b)  unlimited
+pseudo-terminals                (-p)  unlimited
+--End resource limits--
+=======================<phase: check-sanity   >============================
+===>  License GPLv3 accepted by the user
+===========================================================================
+=======================<phase: pkg-depends    >============================
+===>   py27-bear-2.3.6 depends on file: /usr/local/sbin/pkg - not found
+===>   Installing existing package /packages/All/pkg-1.10.1.txz
+[103i386-default] Installing pkg-1.10.1...
+[103i386-default] Extracting pkg-1.10.1: .......... done
+===>   py27-bear-2.3.6 depends on file: /usr/local/sbin/pkg - found
+===>   Returning to build of py27-bear-2.3.6
+===========================================================================
+=======================<phase: fetch-depends  >============================
+===========================================================================
+=======================<phase: fetch          >============================
+===>  License GPLv3 accepted by the user
+===>   py27-bear-2.3.6 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py27-bear-2.3.6 for building
+===========================================================================
+=======================<phase: checksum       >============================
+===>  License GPLv3 accepted by the user
+===>   py27-bear-2.3.6 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py27-bear-2.3.6 for building
+=> SHA256 Checksum OK for rizsotto-Bear-2.3.6_GH0.tar.gz.
+===========================================================================
+=======================<phase: extract-depends>============================
+===========================================================================
+=======================<phase: extract        >============================
+===>  License GPLv3 accepted by the user
+===>   py27-bear-2.3.6 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py27-bear-2.3.6 for building
+===>  Extracting for py27-bear-2.3.6
+=> SHA256 Checksum OK for rizsotto-Bear-2.3.6_GH0.tar.gz.
+===========================================================================
+=======================<phase: patch-depends  >============================
+===========================================================================
+=======================<phase: patch          >============================
+===>  Patching for py27-bear-2.3.6
+/usr/bin/sed -i.bak -e '/install(FILES COPYING/d'  -e '/{CMAKE_INSTALL_DOCDIR}/d'  /wrkdirs/usr/ports/devel/bear/work/Bear-2.3.6/CMakeLists.txt
+===========================================================================
+=======================<phase: build-depends  >============================
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/cmake - not found
+===>   Installing existing package /packages/All/cmake-3.8.2.txz
+[103i386-default] Installing cmake-3.8.2...
+[103i386-default] `-- Installing cmake-modules-3.8.2...
+[103i386-default] `-- Extracting cmake-modules-3.8.2: .......... done
+[103i386-default] `-- Installing curl-7.54.1...
+[103i386-default] |   `-- Installing ca_root_nss-3.31...
+[103i386-default] |   `-- Extracting ca_root_nss-3.31: ........ done
+[103i386-default] |   `-- Installing libnghttp2-1.24.0...
+[103i386-default] |   `-- Extracting libnghttp2-1.24.0: .......... done
+[103i386-default] `-- Extracting curl-7.54.1: .......... done
+[103i386-default] `-- Installing expat-2.2.1...
+[103i386-default] `-- Extracting expat-2.2.1: .......... done
+[103i386-default] `-- Installing jsoncpp-1.8.1...
+[103i386-default] `-- Extracting jsoncpp-1.8.1: .......... done
+[103i386-default] `-- Installing libarchive-3.3.1,1...
+[103i386-default] |   `-- Installing liblz4-1.7.5,1...
+[103i386-default] |   `-- Extracting liblz4-1.7.5,1: .......... done
+[103i386-default] |   `-- Installing lzo2-2.10_1...
+[103i386-default] |   `-- Extracting lzo2-2.10_1: .......... done
+[103i386-default] `-- Extracting libarchive-3.3.1,1: .......... done
+[103i386-default] `-- Installing libuv-1.13.1...
+[103i386-default] `-- Extracting libuv-1.13.1: .......... done
+[103i386-default] `-- Installing rhash-1.3.4...
+[103i386-default] `-- Extracting rhash-1.3.4: .......... done
+[103i386-default] Extracting cmake-3.8.2: .......... done
+Message from ca_root_nss-3.31:
+********************************* WARNING *********************************
+
+FreeBSD does not, and can not warrant that the certification authorities
+whose certificates are included in this package have in any way been
+audited for trustworthiness or RFC 3647 compliance.
+
+Assessment and verification of trust is the complete responsibility of the
+system administrator.
+
+*********************************** NOTE **********************************
+
+This package installs symlinks to support root certificates discovery by
+default for software that uses OpenSSL.
+
+This enables SSL Certificate Verification by client software without manual
+intervention.
+
+If you prefer to do this manually, replace the following symlinks with
+either an empty file or your site-local certificate bundle.
+
+  * /etc/ssl/cert.pem
+  * /usr/local/etc/ssl/cert.pem
+  * /usr/local/openssl/cert.pem
+
+***************************************************************************
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/cmake - found
+===>   Returning to build of py27-bear-2.3.6
+===>   py27-bear-2.3.6 depends on executable: ninja - not found
+===>   Installing existing package /packages/All/ninja-1.7.2,2.txz
+[103i386-default] Installing ninja-1.7.2,2...
+[103i386-default] `-- Installing python27-2.7.13_6...
+[103i386-default] |   `-- Installing gettext-runtime-0.19.8.1_1...
+[103i386-default] |   | `-- Installing indexinfo-0.2.6...
+[103i386-default] |   | `-- Extracting indexinfo-0.2.6: .... done
+[103i386-default] |   `-- Extracting gettext-runtime-0.19.8.1_1: .......... done
+[103i386-default] |   `-- Installing libffi-3.2.1...
+[103i386-default] |   `-- Extracting libffi-3.2.1: .......... done
+[103i386-default] |   `-- Installing readline-7.0.3...
+[103i386-default] |   `-- Extracting readline-7.0.3: .......... done
+[103i386-default] `-- Extracting python27-2.7.13_6: .......... done
+[103i386-default] Extracting ninja-1.7.2,2: ....... done
+Message from python27-2.7.13_6:
+===========================================================================
+
+Note that some standard Python modules are provided as separate ports
+as they require additional dependencies. They are available as:
+
+bsddb           databases/py-bsddb
+gdbm            databases/py-gdbm
+sqlite3         databases/py-sqlite3
+tkinter         x11-toolkits/py-tkinter
+
+===========================================================================
+===>   py27-bear-2.3.6 depends on executable: ninja - found
+===>   Returning to build of py27-bear-2.3.6
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/python2.7 - found
+===========================================================================
+=======================<phase: lib-depends    >============================
+===========================================================================
+====>> Recording filesystem state for prebuild... done
+=======================<phase: configure      >============================
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/cmake - found
+===>   py27-bear-2.3.6 depends on executable: ninja - found
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/python2.7 - found
+===>  Configuring for py27-bear-2.3.6
+===>  Performing in-source build
+/bin/mkdir -p /wrkdirs/usr/ports/devel/bear/work/Bear-2.3.6
+-- The C compiler identification is Clang 3.4.1
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test C99_SUPPORTED
+-- Performing Test C99_SUPPORTED - Success
+-- Looking for execve
+-- Looking for execve - found
+-- Looking for execv
+-- Looking for execv - found
+-- Looking for execvpe
+-- Looking for execvpe - not found
+-- Looking for execvp
+-- Looking for execvp - found
+-- Looking for execvP
+-- Looking for execvP - found
+-- Looking for exect
+-- Looking for exect - found
+-- Looking for execl
+-- Looking for execl - found
+-- Looking for execlp
+-- Looking for execlp - found
+-- Looking for execle
+-- Looking for execle - found
+-- Looking for posix_spawn
+-- Looking for posix_spawn - found
+-- Looking for posix_spawnp
+-- Looking for posix_spawnp - found
+-- Looking for _NSGetEnviron
+-- Looking for _NSGetEnviron - not found
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Found Threads: TRUE  
+-- Looking for lit
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_COLOR_MAKEFILE
+    CMAKE_CXX_COMPILER
+    CMAKE_CXX_FLAGS
+    CMAKE_CXX_FLAGS_DEBUG
+    CMAKE_CXX_FLAGS_RELEASE
+    CMAKE_C_FLAGS_DEBUG
+    CMAKE_EXE_LINKER_FLAGS
+    CMAKE_MODULE_LINKER_FLAGS
+    CMAKE_VERBOSE_MAKEFILE
+    Python_ADDITIONAL_VERSIONS
+
+
+-- Build files have been written to: /wrkdirs/usr/ports/devel/bear/work/Bear-2.3.6
+===========================================================================
+=======================<phase: build          >============================
+===>  Building for py27-bear-2.3.6
+[1/2] /usr/bin/cc -D_GNU_SOURCE -Dear_EXPORTS -Ilibear -O2 -pipe  -fstack-protector -fno-strict-aliasing -std=c99 -O2 -pipe  -fstack-protector -fno-strict-aliasing -fPIC   -pthread -MD -MT libear/CMakeFiles/ear.dir/ear.c.o -MF libear/CMakeFiles/ear.dir/ear.c.o.d -o libear/CMakeFiles/ear.dir/ear.c.o   -c libear/ear.c
+[2/2] : && /usr/bin/cc -fPIC -O2 -pipe  -fstack-protector -fno-strict-aliasing -std=c99 -O2 -pipe  -fstack-protector -fno-strict-aliasing  -fstack-protector -shared -Wl,-soname,libear.so -o libear/libear.so libear/CMakeFiles/ear.dir/ear.c.o  -Wl,-rpath,:::::::::::::::: -pthread && :
+===========================================================================
+====>> Checking for filesystem violations... done
+=======================<phase: run-depends    >============================
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/python2.7 - found
+===========================================================================
+====>> Recording filesystem state for prestage... done
+=======================<phase: stage          >============================
+===>  Staging for py27-bear-2.3.6
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/python2.7 - found
+===>   Generating temporary packing list
+[0/1] cd /wrkdirs/usr/ports/devel/bear/work/Bear-2.3.6 && /usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+-- Install configuration: "Release"
+-- Installing: /wrkdirs/usr/ports/devel/bear/work/stage/usr/local/lib/libear.so
+-- Set runtime path of "/wrkdirs/usr/ports/devel/bear/work/stage/usr/local/lib/libear.so" to "@loader_path/lib"
+-- Installing: /wrkdirs/usr/ports/devel/bear/work/stage/usr/local/bin/bear
+-- Installing: /wrkdirs/usr/ports/devel/bear/work/stage/usr/local/man/man1/bear.1
+/bin/mkdir -p /wrkdirs/usr/ports/devel/bear/work/stage/usr/local/share/doc/bear
+install  -m 0644 /wrkdirs/usr/ports/devel/bear/work/Bear-2.3.6/README.md /wrkdirs/usr/ports/devel/bear/work/stage/usr/local/share/doc/bear
+====> Compressing man pages (compress-man)
+===========================================================================
+====> Running Q/A tests (stage-qa)
+====> Checking for pkg-plist issues (check-plist)
+===> Parsing plist
+===> Checking for items in STAGEDIR missing from pkg-plist
+===> Checking for items in pkg-plist which are not in STAGEDIR
+===> No pkg-plist issues found (check-plist)
+====>> Checking for staging violations... done
+=======================<phase: package        >============================
+===>  Building package for py27-bear-2.3.6
+===========================================================================
+=======================<phase: install-mtree  >============================
+===========================================================================
+====>> Recording filesystem state for preinst... done
+=======================<phase: install        >============================
+===>  Installing for py27-bear-2.3.6
+===>   py27-bear-2.3.6 depends on file: /usr/local/bin/python2.7 - found
+===>  Checking if py27-bear already installed
+===>   Registering installation for py27-bear-2.3.6
+[103i386-default] Installing py27-bear-2.3.6...
+===========================================================================
+====>> Checking shared library dependencies
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.7]
+ 0x00000001 (NEEDED)                     Shared library: [libthr.so.3]
+=======================<phase: deinstall      >============================
+===>  Deinstalling for py27-bear
+===>   Deinstalling py27-bear-2.3.6
+Updating database digests format: .......... done
+Checking integrity... done (0 conflicting)
+Deinstallation has been requested for the following 1 packages (of 0 packages in the universe):
+
+Installed packages to be REMOVED:
+	py27-bear-2.3.6
+
+Number of packages to be removed: 1
+[103i386-default] [1/1] Deinstalling py27-bear-2.3.6...
+[103i386-default] [1/1] Deleting files for py27-bear-2.3.6: ....... done
+===========================================================================
+====>> Checking for extra files and directories
+[00:11:39] ====>> Installing from package
+[103i386-default] Installing py27-bear-2.3.6...
+[103i386-default] Extracting py27-bear-2.3.6: ....... done
+[00:11:39] ====>> Cleaning up
+===>  Cleaning for py27-bear-2.3.6
+[00:11:39] ====>> Deinstalling package
+Updating database digests format: . done
+Checking integrity... done (0 conflicting)
+Deinstallation has been requested for the following 1 packages (of 0 packages in the universe):
+
+Installed packages to be REMOVED:
+	py27-bear-2.3.6
+
+Number of packages to be removed: 1
+[103i386-default] [1/1] Deinstalling py27-bear-2.3.6...
+[103i386-default] [1/1] Deleting files for py27-bear-2.3.6: ....... done
+build of devel/bear ended at Mon Jul 17 09:23:20 CST 2017
+build time: 00:00:06
